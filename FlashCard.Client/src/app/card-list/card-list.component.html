@@ -1,1 +1,3 @@
-<h1>Card List goes here...</h1>
+<div *ngFor="let card of cards">
+    <app-card-item [card]="card"></app-card-item>
+</div>

@@ -23,7 +23,22 @@ namespace FlashCard.Api.Models
                         Answer = "ngForm directive creates a top-level FormGroup instance and binds it to your <form> tag to enable you to work with the form",
                         Topic = angular,
                         IsFavorite = false
+                    }, 
+                    new Card
+                    {
+                        Question = "What is a directive",
+                        Answer = "Essentially a function that execute when the Angular compiler finds them in the DOM",
+                        Topic = angular,
+                        IsFavorite = false
+                    },
+                    new Card
+                    {
+                        Question = "What are Output Properties",
+                        Answer = "Child components can use output properties that define custom events that signal important changes and that allow the parent component to respond when they occur",
+                        Topic = angular,
+                        IsFavorite = false
                     });
+
                 context.SaveChanges();
             }
         }

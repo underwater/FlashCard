@@ -1,4 +1,6 @@
-﻿namespace FlashCard.Api.Models
+﻿using System.Collections.Generic;
+
+namespace FlashCard.Api.Models
 {
     public class Topic
     {

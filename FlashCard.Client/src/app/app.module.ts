@@ -9,6 +9,7 @@ import { TopicListComponent } from './topic-list/topic-list.component';
 import { TopicService } from './services/topic.service';
 
 import { HttpClientModule } from '@angular/common/http';
+import { CardItemComponent } from './card-item/card-item.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     MenuComponent,
     CardListComponent,
-    TopicListComponent
+    TopicListComponent,
+    CardItemComponent
   ],
   imports: [
     BrowserModule,

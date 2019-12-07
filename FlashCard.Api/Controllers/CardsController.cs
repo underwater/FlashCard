@@ -24,7 +24,9 @@ namespace FlashCard.Api.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Card>>> GetCards()
         {
-            return await _context.Cards.ToListAsync();
+            return await _context.Cards
+                .Include(c => c.Topic)
+                .ToListAsync();
         }
 
         // GET: api/Cards/5

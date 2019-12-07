@@ -18,16 +18,19 @@ namespace FlashCard.Api.Controllers
 
         public TopicsController(DataContext context)
         {
-            // to simulate delay
-            Thread.Sleep(5000);
+
+
             _context = context;
         }
 
         // GET: api/Topics
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Topic>>> GetTopics()
-        {
-            return await _context.Topics.ToListAsync();
+        {   // to simulate delay
+            Thread.Sleep(2000);
+            return await _context
+                .Topics
+                .ToListAsync();
         }
 
         // GET: api/Topics/5

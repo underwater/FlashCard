@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CardsService } from '../services/cards.service';
+import { Card } from '../models/card.model';
 
 
 @Component({
@@ -7,13 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card-list.component.css']
 })
 export class CardListComponent implements OnInit {
-
-  constructor() { }
-
-
+  public cards: Card[];
+  constructor(private cardService: CardsService) { }
 
   ngOnInit() {
-
+    this.cards = this.cardService.cards;
   }
 
 }
