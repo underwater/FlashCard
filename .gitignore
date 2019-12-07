@@ -3,3 +3,5 @@
 ################################################################################
 
 /FlashCard.Api/bin/Debug/netcoreapp3.0
+/FlashCard.Api/obj/Debug/netcoreapp3.0
+/.vs/Flashcards
