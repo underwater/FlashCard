@@ -34,8 +34,8 @@ namespace FlashCard.Api
             services.AddCors(o => o.AddPolicy("AllowAnyOrigin", builder => {
                 builder.AllowAnyOrigin()
                     .AllowAnyMethod()
-                    .AllowAnyHeader()
-                    .WithExposedHeaders("WWW-Authenticate");
+                    .AllowAnyHeader();
+                    //.WithExposedHeaders("WWW-Authenticate");
             }));
 
             services.AddControllers();
