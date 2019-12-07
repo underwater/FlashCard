@@ -6,11 +6,14 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using FlashCard.Api.Models;
+using Microsoft.AspNetCore.Cors;
 
 namespace FlashCard.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    // https://www.c-sharpcorner.com/article/enabling-cors-in-asp-net-core-api-application/
+    [EnableCors("AllowAnyOrigin")]
     public class CardsController : ControllerBase
     {
         private readonly DataContext _context;

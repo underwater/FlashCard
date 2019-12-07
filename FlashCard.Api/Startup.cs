@@ -31,7 +31,7 @@ namespace FlashCard.Api
             services.AddDbContext<DataContext>(opt => 
                     opt.UseSqlServer(Configuration.GetConnectionString("FlashCardDb")));
             
-            services.AddCors(o => o.AddPolicy("CorsPoliceForAngular", builder => {
+            services.AddCors(o => o.AddPolicy("AllowAnyOrigin", builder => {
                 builder.AllowAnyOrigin()
                     .AllowAnyMethod()
                     .AllowAnyHeader()
@@ -58,7 +58,7 @@ namespace FlashCard.Api
 
             app.UseAuthorization();
 
-            app.UseCors("CorsPoliceForAngular");
+            app.UseCors("AllowAnyOrigin");
 
             app.UseEndpoints(endpoints =>
             {
