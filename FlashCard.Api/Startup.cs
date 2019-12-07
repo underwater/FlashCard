@@ -30,6 +30,7 @@ namespace FlashCard.Api
         {
             services.AddDbContext<DataContext>(opt => 
                     opt.UseSqlServer(Configuration.GetConnectionString("FlashCardDb")));
+            services.AddCors();
             services.AddControllers();
             services.AddSwaggerGen(opt => 
                 opt.SwaggerDoc("v1", new OpenApiInfo { Title = "Flash Card API", Version = "v1" }));
@@ -49,6 +50,8 @@ namespace FlashCard.Api
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod());
 
             app.UseEndpoints(endpoints =>
             {
