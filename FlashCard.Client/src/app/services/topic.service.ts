@@ -8,7 +8,7 @@ export class TopicService {
   public topics: Topic[];
 
   constructor(private http: HttpClient) {
-    const url = 'api/topics';
+    const url = 'http://localhost:5000/api/topics';
     this.http.get<Topic[]>(url)
       .subscribe(res => this.topics = res);
   }

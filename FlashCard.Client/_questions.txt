@@ -1,0 +1,34 @@
+Q - 1  blocked by CORS policy
+Basically the problem is that by design the browsers have a same-origin policy which
+won't allow JS existing on page hosted on site A to make Ajax call to Site B
+
+Cross-Origin Resource Sharing, or CORS, was built to help solve this issue.
+CORS puts servers firmly in charge of who can make requests, and what type of requests are allowed.
+
+A server has the choice to
+- open up its API to all clients,
+- open it up to a small number of clients, or
+- prevent access to all clients.
+
+(??) I think both the client and servers have parts to play to get this to work
+The browser and the server use HTTP headers to communicate how cross-origin requests behave
+A simplification of what happens
+1 - browser indicates it needs to get data from another domain (adds CORS specific Header in request)
+2 - Server responds by add its own response headers (either allowing or rejecting this)
+
+Now if our API is Asp.Net port 5000 and angular client app being hosted by web pack dev server on 4200
+By default this won't work, for it to work
+
+1 - ON Client JS code (in angular service using the httpclient for example), just initiates a call to another site
+the browser  detects if request is cross domain without any additional info
+ (broser just adds ORIGIN RequestHeader which is now obligatory to identify the caller)
+ (also The Origin header is always present on cross-origin requests, and the client has no way of setting
+ or overriding the value. This is a requirement from a security standpoint:)
+
+2 - ON Server: the foreign domain, should in its response include a header Access-Control-Allow-Origin that says that who is  allowed
+(note: The value of the Access-Control-Allow-Origin header can be either a wildcard or an origin value. )
+An Access-Control-Allow-Origin header with the value * indicates that any client can access this resource.
+In fact, the simplest way to add CORS support to a server is to add Access-Control-Allow-Origin: * to every response
+
+Notes:
+using of a proxy file, is just to redirect another domain from the web pack server (i.e. without having the client be aware of the location of api server)

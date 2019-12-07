@@ -51,7 +51,7 @@ namespace FlashCard.Api
 
             app.UseAuthorization();
 
-            app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod());
+            app.UseCors(options => options.WithOrigins("http://localhost:4200").AllowAnyMethod());
 
             app.UseEndpoints(endpoints =>
             {
