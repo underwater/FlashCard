@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using FlashCard.Api.Models;
+using System.Threading;
 
 namespace FlashCard.Api.Controllers
 {
@@ -17,6 +18,8 @@ namespace FlashCard.Api.Controllers
 
         public TopicsController(DataContext context)
         {
+            // to simulate delay
+            Thread.Sleep(5000);
             _context = context;
         }
 

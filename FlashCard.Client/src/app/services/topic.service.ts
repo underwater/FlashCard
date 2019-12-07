@@ -6,12 +6,17 @@ import { HttpClient } from '@angular/common/http';
 export class TopicService {
 
   public topics: Topic[];
+  private url = 'http://localhost:5000/api/topics';
+
+  // ToDo: this works because we are using a proxy file on the web pack server ?
+  // private url = '/api/topics';
 
   constructor(private http: HttpClient) {
-    const url = 'http://localhost:5000/api/topics';
-    this.http.get<Topic[]>(url)
-      .subscribe(res => this.topics = res);
+    this.getTopics();
   }
 
-
+  getTopics() {
+    this.http.get<Topic[]>(this.url)
+      .subscribe(res => this.topics = res);
+  }
 }
