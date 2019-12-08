@@ -17,16 +17,22 @@ export class TopicListComponent implements OnInit {
     this.getTopics();
   }
   getTopics() {
-    this.topics = this.topicService.topics;
+    this.topicService.getTopics().subscribe(result => {
+      this.topics = result;
+    });
   }
 
   OnAddTopic(topic: Topic) {
-    this.topicService.addTopic(topic);
+    this.topicService.addTopic(topic).subscribe(res => {
+      this.topics.push(res)
+    });
 
   }
 
   OnDeleteTopic(topic: Topic) {
-    this.topicService.deleteTopic(topic);
+    this.topicService.deleteTopic(topic).subscribe(res => {
+      this.topics = this.topics.filter(t => t.id !== res.id);
+    });
 
   }
 

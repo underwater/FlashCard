@@ -1,27 +1,24 @@
 import { Topic } from '../models/topic.model';
 import { OnInit, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class TopicService {
-
-  public topics: Topic[];
-  private url = '/api/topics';
 
   constructor(private http: HttpClient) {
     this.getTopics();
   }
 
-  getTopics() {
-    this.http.get<Topic[]>(this.url)
-      .subscribe(res => this.topics = res);
+  getTopics(): Observable<Topic[]> {
+    return this.http.get<Topic[]>('/api/topics');
   }
 
-  addTopic(topic: Topic) {
-    console.log('add topic', topic);
+  addTopic(topic: Topic): Observable<Topic> {
+    return this.http.post<Topic>('/api/topics', topic);
   }
 
-  deleteTopic(topic: Topic) {
-    console.log('Delete topic', topic);
+  deleteTopic(topic: Topic): Observable<Topic> {
+    return this.http.delete<Topic>('/api/topics/' + topic.id);
   }
 }

@@ -1,3 +1,3 @@
 export class Topic {
-  constructor(public name: string) { }
+  constructor(public id: number = 0, public name: string) { }
 }
