@@ -21,7 +21,11 @@ export class TopicListComponent implements OnInit {
   }
 
   OnAddTopic(topic: Topic) {
-    console.log(topic);
+    console.log('add topic', topic);
+  }
+
+  OnDeleteTopic(topic: Topic) {
+    console.log('Delete topic', topic);
   }
 
 }

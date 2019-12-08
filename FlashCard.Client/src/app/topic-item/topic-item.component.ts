@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Topic } from '../models/topic.model';
+
 
 @Component({
   selector: 'app-topic-item',
@@ -9,10 +10,15 @@ import { Topic } from '../models/topic.model';
 export class TopicItemComponent implements OnInit {
 
   @Input() public topic: Topic;
+  @Output() public deleteTopic: EventEmitter<any> = new EventEmitter();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  OnDeleteTopic(topic: Topic) {
+    console.log('delete topic', topic);
   }
 
 }
