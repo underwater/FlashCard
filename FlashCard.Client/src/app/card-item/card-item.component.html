@@ -1,10 +1,11 @@
+<!-- how to put multiple equally sized on same row  -->
 <div class="card">
     <div class="card-header">
         {{card.question}}
+        <button class="btn btn-info float-right" (click)="toggleAnswer()">{{isAnswerShown ? 'Hide' : 'Show'}}</button>
     </div>
-    <div class="card-body">
-        <h4 class="card-title">Answer:</h4>
-        <p class="card-text">{{card.answer}}</p>
-        <!-- <a class="btn btn-danger" href="#">Read More</a> -->
+
+    <div *ngIf="isAnswerShown" class="card-body">
+        <div class="card-text">{{card.answer}}</div>
     </div>
 </div>

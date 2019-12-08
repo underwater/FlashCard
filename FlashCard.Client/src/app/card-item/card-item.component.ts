@@ -9,9 +9,14 @@ import { Card } from '../models/card.model';
 export class CardItemComponent implements OnInit {
   @Input()
   card: Card;
+  isAnswerShown = false;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  toggleAnswer() {
+    this.isAnswerShown = !this.isAnswerShown;
   }
 
 }
