@@ -1,7 +1,8 @@
-<table class="table">
-    <thead>
+<table class="table table-sm">
+    <thead class="thead-dark">
+        <th>Topic</th>
         <tr *ngFor="let topic of topics">
-            <th>{{topic.name}}</th>
+            {{topic.name}}
         </tr>
     </thead>
 </table>

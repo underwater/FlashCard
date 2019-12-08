@@ -13,7 +13,8 @@ namespace FlashCard.Api.Controllers
     [Route("api/[controller]")]
     [ApiController]
     // https://www.c-sharpcorner.com/article/enabling-cors-in-asp-net-core-api-application/
-    [EnableCors("AllowAnyOrigin")]
+    // this doesn't seem needed
+    //[EnableCors("AllowAnyOrigin")]
     public class CardsController : ControllerBase
     {
         private readonly DataContext _context;

@@ -14,7 +14,10 @@ export class TopicListComponent implements OnInit {
 
 
   ngOnInit() {
-
+    this.getTopics();
+  }
+  getTopics() {
+    this.topics = this.topicService.topics;
   }
 
 }

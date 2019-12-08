@@ -26,8 +26,7 @@ namespace FlashCard.Api.Controllers
         // GET: api/Topics
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Topic>>> GetTopics()
-        {   // to simulate delay
-            Thread.Sleep(2000);
+        {   
             return await _context
                 .Topics
                 .ToListAsync();
