@@ -2,7 +2,7 @@
     <thead>
         <th>Topic</th>
         <tr *ngFor="let topic of topics">
-            <app-topic-item [topic]="topic" (deleteTopic)="OnDeleteTopic()">
+            <app-topic-item [topic]="topic" (deleteTopic)="OnDeleteTopic($event)">
             </app-topic-item>
         </tr>
     </thead>

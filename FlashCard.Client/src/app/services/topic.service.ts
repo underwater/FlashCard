@@ -16,4 +16,12 @@ export class TopicService {
     this.http.get<Topic[]>(this.url)
       .subscribe(res => this.topics = res);
   }
+
+  addTopic(topic: Topic) {
+    console.log('add topic', topic);
+  }
+
+  deleteTopic(topic: Topic) {
+    console.log('Delete topic', topic);
+  }
 }

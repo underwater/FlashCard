@@ -18,7 +18,7 @@ export class TopicItemComponent implements OnInit {
   }
 
   OnDeleteTopic(topic: Topic) {
-    console.log('delete topic', topic);
+    this.deleteTopic.emit(topic);
   }
 
 }
