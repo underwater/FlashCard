@@ -1,8 +1,10 @@
-<table class="table table-sm">
-    <thead class="thead-dark">
+<table class="table">
+    <thead>
         <th>Topic</th>
         <tr *ngFor="let topic of topics">
-            {{topic.name}}
+            <app-topic-item [topic]="topic">
+            </app-topic-item>
         </tr>
     </thead>
 </table>
+<app-topic-item-add (addTopic)="OnAddTopic($event)"></app-topic-item-add>

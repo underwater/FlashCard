@@ -20,4 +20,8 @@ export class TopicListComponent implements OnInit {
     this.topics = this.topicService.topics;
   }
 
+  OnAddTopic(topic: Topic) {
+    console.log(topic);
+  }
+
 }

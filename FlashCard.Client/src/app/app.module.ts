@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +11,8 @@ import { TopicService } from './services/topic.service';
 
 import { HttpClientModule } from '@angular/common/http';
 import { CardItemComponent } from './card-item/card-item.component';
+import { TopicItemComponent } from './topic-item/topic-item.component';
+import { TopicItemAddComponent } from './topic-item-add/topic-item-add.component';
 
 
 @NgModule({
@@ -18,12 +21,15 @@ import { CardItemComponent } from './card-item/card-item.component';
     MenuComponent,
     CardListComponent,
     TopicListComponent,
-    CardItemComponent
+    CardItemComponent,
+    TopicItemComponent,
+    TopicItemAddComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [TopicService],
   bootstrap: [AppComponent]

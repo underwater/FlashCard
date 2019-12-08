@@ -31,4 +31,10 @@ An Access-Control-Allow-Origin header with the value * indicates that any client
 In fact, the simplest way to add CORS support to a server is to add Access-Control-Allow-Origin: * to every response
 
 Notes:
-using of a proxy file, is just to redirect another domain from the web pack server (i.e. without having the client be aware of the location of api server)
+- Using of a proxy file, is just to redirect another domain from the web pack server (i.e. without having the client be aware of the location of api server)
+- When to use enableCors attribute (doesn't seem to be needed)
+
+
+Q -2 / Change Tracking
+The retrieval of the data seems to work (Augry) but to see the results, user need to navigate somewhere else and then come back to see the result
+Is change tracking not working as it should ?

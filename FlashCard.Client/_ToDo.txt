@@ -1,1 +1,13 @@
-look at the todo list app, and create topics editing
+
+add / remove topics
+
+Filter cards by topic
+
+add / remove / edit questions
+
+publish azure (free tier)
+
+CI / github
+
+
+
