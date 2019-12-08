@@ -22,7 +22,9 @@ export class TopicItemAddComponent implements OnInit {
       name: this.name
     };
 
+    this.name = ''; // reset form after submit
     this.addTopic.emit(newTopic);
+
   }
 
 }
