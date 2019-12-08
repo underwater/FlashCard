@@ -1,4 +1,8 @@
-<form #topicForm="ngForm" class="form-inline" (ngSubmit)="onSubmit()">
-    <input required class='form-control' s type="text" name="name" [(ngModel)]="name" placeholder="add topic...">
-    <input [disabled]="!topicForm.form.valid" type="submit" class="btn btn-primary">
+<form #topicForm="ngForm" class="form" (ngSubmit)="onSubmit()">
+
+    <!-- to add validation if user doesn't type something -->
+    <!-- [ngClass]="{ 'is-invalid': topicForm.touched && topicForm.invalid}" -->
+
+    <input required class='form-control' type="text" name="name" [(ngModel)]="name" placeholder="add topic...">
+    <input [disabled]="!topicForm.form.valid" type="submit" class="btn btn-primary btn-block">
 </form>

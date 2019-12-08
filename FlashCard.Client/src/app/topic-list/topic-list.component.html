@@ -1,11 +1,13 @@
 <!-- stripped and hover not working -->
-<table class="table table-striped table-hover">
-    <thead>
-        <th>Topic</th>
-        <tr *ngFor="let topic of topics">
-            <app-topic-item [topic]="topic" (deleteTopic)="OnDeleteTopic($event)">
-            </app-topic-item>
-        </tr>
-    </thead>
-</table>
-<app-topic-item-add (addTopic)="OnAddTopic($event)"></app-topic-item-add>
+<div class='col-4'>
+    <table class="table table-striped table-hover">
+        <thead>
+            <th>Topic</th>
+            <tr *ngFor="let topic of topics">
+                <app-topic-item [topic]="topic" (deleteTopic)="OnDeleteTopic($event)">
+                </app-topic-item>
+            </tr>
+        </thead>
+    </table>
+    <app-topic-item-add (addTopic)="OnAddTopic($event)"></app-topic-item-add>
+</div>
