@@ -1,13 +1,19 @@
+disable submit to add topic if user didn't type anything in text box
 
-add / remove topics
+display friendly error message if remove topic fails
 
-Filter cards by topic
+Filter cards by topic, using topic drop down
 
 add / remove / edit questions
+- user navigation / or modal window ?
 
-publish azure (free tier)
+manual publish azure (free tier)
 
-CI / github
+CI / github / Azure
+
+make it mobile friendly
+
+
 
 
 

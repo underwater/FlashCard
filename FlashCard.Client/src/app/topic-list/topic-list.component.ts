@@ -30,9 +30,13 @@ export class TopicListComponent implements OnInit {
   }
 
   OnDeleteTopic(topic: Topic) {
-    this.topicService.deleteTopic(topic).subscribe(res => {
-      this.topics = this.topics.filter(t => t.id !== res.id);
-    });
+    this.topicService.deleteTopic(topic).subscribe(
+      res => {
+        this.topics = this.topics.filter(t => t.id !== res.id);
+      },
+      err => {
+        console.log(err)
+      });
 
   }
 

@@ -35,6 +35,10 @@ Notes:
 - When to use enableCors attribute (doesn't seem to be needed)
 
 
-Q -2 / Change Tracking
-The retrieval of the data seems to work (Augry) but to see the results, user need to navigate somewhere else and then come back to see the result
-Is change tracking not working as it should ?
+Q - how to handle api errors, (simple version)
+try / catch in controller and return status code != 200
+
+Q - How to do it globally, by 
+a) on server add middle ware for centralized error handling 
+b) display friendly message to user via global http inteceptor
+

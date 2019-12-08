@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using FlashCard.Api.Models;
 using System.Threading;
+using System.Net;
 
 namespace FlashCard.Api.Controllers
 {
@@ -100,8 +101,16 @@ namespace FlashCard.Api.Controllers
                 return NotFound();
             }
 
-            _context.Topics.Remove(topic);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Topics.Remove(topic);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+    
 
             return topic;
         }
