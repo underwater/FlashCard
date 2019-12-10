@@ -22,7 +22,7 @@ export class TopicItemAddComponent implements OnInit {
       name: this.name
     };
 
-    this.name = ''; // reset form after submit
+    this.name = ''; // TODO: reset form after submit, but have it be untouched?
     this.addTopic.emit(newTopic);
 
   }

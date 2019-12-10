@@ -16,19 +16,16 @@ export class TopicListComponent implements OnInit {
   ngOnInit() {
     this.getTopics();
   }
+
   getTopics() {
-    this.topicService.getTopics().subscribe(result => {
-      this.topics = result;
-    });
+    this.topicService.getTopics().subscribe(result => this.topics = result);
   }
 
   OnAddTopic(topic: Topic) {
-    this.topicService.addTopic(topic).subscribe(res => {
-      this.topics.push(res)
-    });
-
+    this.topicService.addTopic(topic).subscribe(res => this.topics.push(res));
   }
 
+  // TODO: How to show friendly error to user ?
   OnDeleteTopic(topic: Topic) {
     this.topicService.deleteTopic(topic).subscribe(
       res => {
@@ -37,7 +34,5 @@ export class TopicListComponent implements OnInit {
       err => {
         console.log(err);
       });
-
   }
-
 }

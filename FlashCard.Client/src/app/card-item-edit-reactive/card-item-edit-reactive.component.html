@@ -1,10 +1,6 @@
 <h3>Reactive Edit Form</h3>
-
-<!-- <input type="text" [formControl]="question"> {{question.value}} -->
-
-<!-- <button (click)="setQuestion()" class='btn btn-block btn-primary btn-sm'>Set Name to Julie</button> -->
-
 <form [formGroup]='editForm'>
+
     <div class="form-group">
         <Label for="question">Question</Label>
         <input class="form-control" formControlName="question">

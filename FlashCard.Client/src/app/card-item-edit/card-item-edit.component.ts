@@ -26,7 +26,6 @@ export class CardItemEditComponent implements OnInit {
     this.topicService.getTopics().subscribe(topics => this.topics = topics);
 
     const id = this.activatedRoute.snapshot.paramMap.get('id');
-    console.log(`navigating to id: ${id}`);
 
     // TODO: Should we just pass the entire card as parameter or instead just the id and inject service to retrive again the object ?
     this.cardService.getCard(Number(id)).subscribe(
@@ -35,12 +34,10 @@ export class CardItemEditComponent implements OnInit {
   }
 
   save() {
-    // save and return to list
     this.cardService.saveCard(this.card).subscribe(res => this.router.navigate(['/Cards']));
 
   }
   cancel() {
-    // don't save just return to list
     this.router.navigate(['/Cards']);
   }
 }

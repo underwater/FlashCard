@@ -9,7 +9,7 @@ import { CardItemEditReactiveComponent } from './card-item-edit-reactive/card-it
 const routes: Routes = [
   { path: 'Cards', component: CardListComponent },
   { path: 'Topics', component: TopicListComponent },
-  { path: 'card/editreactive', component: CardItemEditReactiveComponent },
+  { path: 'card/editreactive/:id', component: CardItemEditReactiveComponent },
   { path: 'card/edit/:id', component: CardItemEditComponent }
 ];
 

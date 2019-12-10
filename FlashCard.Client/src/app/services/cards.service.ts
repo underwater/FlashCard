@@ -22,7 +22,7 @@ export class CardsService {
     return this.http.get<Card[]>(this.url, httpOptions);
   }
 
-  // is there a better way to pass parameter to HttpClient (using new HttpParams object)
+  // TODO: is there a better way to pass parameter to HttpClient (using new HttpParams object)
   getCard(id: number): Observable<Card> {
     return this.http.get<Card>(this.url + `/${id}`, httpOptions);
   }
