@@ -1,5 +1,5 @@
 import { Component, OnInit, createPlatformFactory } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { TopicService } from '../services/topic.service';
 import { Topic } from '../models/topic.model';
 import { Card } from '../models/card.model';
@@ -16,21 +16,30 @@ export class CardItemEditReactiveComponent implements OnInit {
   topics: Topic[];
   card: Card;
 
-  editForm: FormGroup = new FormGroup({
-    id: new FormControl(),
-    // TODO: I don't wish to set the initial control value, just want to set a validator
-    // question: new FormControl(Validators.required),
-    question: new FormControl(null, [Validators.required]),
-    answer: new FormControl(null, [Validators.required]),
-    isFavorite: new FormControl(),
-    topic: new FormControl(null, Validators.required)
+  // editForm: FormGroup = new FormGroup({
+  //   id: new FormControl(),
+  //   // TODO: I don't wish to set the initial control value, just want to set a validator
+  //   // question: new FormControl(Validators.required),
+  //   question: new FormControl(null, [Validators.required]),
+  //   answer: new FormControl(null, [Validators.required]),
+  //   isFavorite: new FormControl(),
+  //   topic: new FormControl(null, Validators.required)
+  // });
+
+  editForm = this.formBuilder.group({
+    id: [''],
+    question: ['', Validators.required],
+    answer: ['', Validators.required],
+    isFavorite: [''],
+    topic: ['', Validators.required]
   });
 
   constructor(
     private topicService: TopicService,
     private cardService: CardsService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    private formBuilder: FormBuilder
   ) { }
 
   ngOnInit() {

@@ -33,7 +33,14 @@ export class CardListComponent implements OnInit {
 
   }
   onDelete(card: Card) {
-    console.log('on delete', card);
+    // are you sure
+    this.cardService.deleteCard(card).subscribe(
+      res => {
+        this.cards = this.cards.filter(c => c.id !== res.id);
+      },
+      err => {
+        console.log(err);
+      });
   }
 
 }

@@ -59,3 +59,7 @@ Question
 In reactiveForms, how come it is
 - enough to use attribute binding [formControl]="question" and not the two way binding
 - not needed to have banana in a box  [(formControl)]="question"
+
+How does the dialog-service work
+understand the rxJs code
+Is all of this necessary ?

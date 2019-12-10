@@ -15,6 +15,7 @@ import { TopicItemComponent } from './topic-item/topic-item.component';
 import { TopicItemAddComponent } from './topic-item-add/topic-item-add.component';
 import { CardItemEditComponent } from './card-item-edit/card-item-edit.component';
 import { CardItemEditReactiveComponent } from './card-item-edit-reactive/card-item-edit-reactive.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { CardItemEditReactiveComponent } from './card-item-edit-reactive/card-it
     TopicItemComponent,
     TopicItemAddComponent,
     CardItemEditComponent,
-    CardItemEditReactiveComponent
+    CardItemEditReactiveComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,
