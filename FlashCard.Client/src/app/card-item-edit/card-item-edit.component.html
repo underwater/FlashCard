@@ -12,4 +12,17 @@
         <Label for="answer">Answer</Label>
         <textarea class="form-control" [(ngModel)]="card.answer" name="answer" id="answer"></textarea>
     </div>
+
+    <!-- not showing the initial value of the topic when editing a card -->
+    <div class="form-group">
+        <Label for="topic">Topic</Label>
+
+        <select class="custom-select" [(ngModel)]="card.topic" required id="topic">
+      <option *ngFor="let topic of topics" [value]="topic.id">{{topic.name}}</option>
+    </select>
+    </div>
+
+
+    <button class="btn btn-success" (click)="save()">Save</button>
+    <button class="btn btn-danger" (click)="cancel()">Cancel</button>
 </form>
