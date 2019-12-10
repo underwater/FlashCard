@@ -17,7 +17,7 @@
     <div class="form-group">
         <Label for="topic">Topic</Label>
 
-        <select class="custom-select" [(ngModel)]="card.topic" required id="topic">
+        <select class="custom-select" [(ngModel)]="card.topic" required id="topic" name="topic">
       <option *ngFor="let topic of topics" [value]="topic.id">{{topic.name}}</option>
     </select>
     </div>

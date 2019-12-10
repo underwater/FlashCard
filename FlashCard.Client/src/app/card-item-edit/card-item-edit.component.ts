@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Card } from '../models/card.model';
 import { CardsService } from '../services/cards.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { headersToString } from 'selenium-webdriver/http';
 import { TopicService } from '../services/topic.service';
 import { Topic } from '../models/topic.model';
@@ -16,7 +16,11 @@ export class CardItemEditComponent implements OnInit {
 
   card: Card;
   topics: Topic[];
-  constructor(private cardService: CardsService, private topicService: TopicService, private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private cardService: CardsService,
+    private topicService: TopicService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.topicService.getTopics().subscribe(topics => this.topics = topics);
@@ -29,11 +33,14 @@ export class CardItemEditComponent implements OnInit {
       result => this.card = result
     );
   }
+
   save() {
-    console.log('save', this.card);
+    // save and return to list
+    this.cardService.saveCard(this.card).subscribe(res => this.router.navigate(['/Cards']));
 
   }
   cancel() {
-    console.log('cancel', this.card);
+    // don't save just return to list
+    this.router.navigate(['/Cards']);
   }
 }

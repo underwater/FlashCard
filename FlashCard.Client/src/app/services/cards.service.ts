@@ -33,4 +33,8 @@ export class CardsService {
   addCard(card: Card): Observable<Card> {
     return this.http.post<Card>(this.url, card, httpOptions);
   }
+
+  saveCard(card: Card): Observable<Card> {
+    return this.http.put<Card>(this.url, card, httpOptions);
+  }
 }
