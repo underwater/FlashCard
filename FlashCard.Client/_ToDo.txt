@@ -1,11 +1,17 @@
-reactive form add / edit questions
-- do it through navigation new page
-- do it through modal window
+Is it better to navigate another component or display modal dialog for this type of thing ?
 
+tempale form save / cancel questions
+- save ins't working
+
+template form add new
 Are you sure ? (before Card delete)
 
 validation (green / red with messages)
-routing guard / prevent nav away if not saved / cancelled
+- prevent nav away if not saved / cancelled
+- routing guard / anyway to prevent window from closing ?
+
+
+How to do it with reactive form?
 
 show friendly error
 - if example trying to delete something I shouldn't

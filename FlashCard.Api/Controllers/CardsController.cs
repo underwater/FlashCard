@@ -50,13 +50,9 @@ namespace FlashCard.Api.Controllers
         // PUT: api/Cards/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutCard(int id, Card card)
+        [HttpPut]
+        public async Task<IActionResult> PutCard(Card card)
         {
-            if (id != card.Id)
-            {
-                return BadRequest();
-            }
 
             _context.Entry(card).State = EntityState.Modified;
 
@@ -66,14 +62,9 @@ namespace FlashCard.Api.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!CardExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
+ 
                     throw;
-                }
+
             }
 
             return NoContent();
