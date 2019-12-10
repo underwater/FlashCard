@@ -34,11 +34,20 @@ export class CardItemEditReactiveComponent implements OnInit {
   ngOnInit() {
     this.topicService.getTopics().subscribe(values => this.topics = values);
     const id = this.activatedRoute.snapshot.paramMap.get('id');
+
+    // TODO: Is this the right way to initialize the form from service ?
     this.cardService.getCard(+id).subscribe(card => this.editForm.setValue(card));
 
     this.editForm.valueChanges.subscribe(value => console.log(value));
   }
 
+  save() {
+    console.log('saving form : ', this.editForm.value);
+  }
+
+  cancel() {
+    this.router.navigate(['/Cards']);
+  }
 
 
 }
