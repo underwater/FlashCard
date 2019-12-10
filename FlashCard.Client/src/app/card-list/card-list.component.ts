@@ -27,8 +27,8 @@ export class CardListComponent implements OnInit {
   }
 
   onEditReactive(card: Card) {
-    this.router.navigate(['/card/editreactive/', card.id]).then(nav =>
-      console.log('navigating reactive edit form', card)
+    this.router.navigate(['/card/editreactive/', card.id]).then(
+      // do something else?
     );
 
   }

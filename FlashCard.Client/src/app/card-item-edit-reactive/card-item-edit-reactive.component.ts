@@ -1,5 +1,5 @@
 import { Component, OnInit, createPlatformFactory } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { TopicService } from '../services/topic.service';
 import { Topic } from '../models/topic.model';
 import { Card } from '../models/card.model';
@@ -21,7 +21,7 @@ export class CardItemEditReactiveComponent implements OnInit {
     question: new FormControl(),
     answer: new FormControl(),
     isFavorite: new FormControl(),
-    topic: new FormControl()
+    topic: new FormControl(null, Validators.required)
   });
 
   constructor(
@@ -42,9 +42,15 @@ export class CardItemEditReactiveComponent implements OnInit {
   }
 
   save() {
-    console.log('saving form : ', this.editForm.value);
+    this.cardService.saveCard(this.card)
+      .subscribe(
+        result => console.log('saved card', result),
+        // TODO: getting a "Bad Request" 400 error
+        err => console.log('error: ', err)
+      );
   }
 
+  // TODO: getting Form submission canceled because the form is not connected
   cancel() {
     this.router.navigate(['/Cards']);
   }
