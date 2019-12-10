@@ -1,0 +1,26 @@
+<h3>Reactive Edit Form</h3>
+
+<!-- <input type="text" [formControl]="question"> {{question.value}} -->
+
+<!-- <button (click)="setQuestion()" class='btn btn-block btn-primary btn-sm'>Set Name to Julie</button> -->
+
+<form [formGroup]='editForm'>
+    <div class="form-group">
+        <Label for="question">Question</Label>
+        <input class="form-control" formControlName="question">
+    </div>
+    <div class="form-group">
+        <Label for="answer">Answer</Label>
+        <textarea class="form-control" formControlName="answer"></textarea>
+    </div>
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" formControlName="isFavorite" id="isFavorite">
+        <label class="form-check-label" for="isFavorite">Is Favorite</label>
+    </div>
+    <div class="form-group">
+        <Label for="topic">Topic</Label>
+        <select class="custom-select" formControlName="answer">
+      <option *ngFor="let topic of topics" [value]="topic.id">{{topic.name}}</option>
+    </select>
+    </div>
+</form>

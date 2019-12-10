@@ -4,7 +4,8 @@
         {{card.question}}
         <button class="m-1 btn btn-outline-dark float-right" (click)="toggleAnswer()">{{isAnswerShown ? 'Hide' : 'Show'}}</button>
         <button class="m-1 btn btn-outline-danger float-right" (click)="deleteCard($event)">Delete</button>
-        <button class="m-1 btn btn-outline-info float-right" (click)="editCard($event)">Edit</button>
+        <button class="m-1 btn btn-outline-info float-right" (click)="editCard($event)">Edit (Template)</button>
+        <button class="m-1 btn btn-outline-info float-right" (click)="editCardReactive($event)">Edit (Reactive)</button>
     </div>
 
     <div *ngIf="isAnswerShown" class="card-body">

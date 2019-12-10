@@ -8,6 +8,7 @@ import { Card } from '../models/card.model';
 })
 export class CardItemComponent implements OnInit {
   @Output() public edit: EventEmitter<any> = new EventEmitter();
+  @Output() public editReactive: EventEmitter<any> = new EventEmitter();
   @Output() public delete: EventEmitter<any> = new EventEmitter();
 
   @Input()
@@ -27,9 +28,11 @@ export class CardItemComponent implements OnInit {
   }
 
   editCard(card: Card) {
-   this.edit.emit(card);
- 
+    this.edit.emit(card);
   }
 
+  editCardReactive(card: Card) {
+    this.editReactive.emit(card);
+  }
 
 }

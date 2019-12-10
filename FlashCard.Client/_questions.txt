@@ -41,7 +41,7 @@ Question#2
 If you 'edit' a card from the card list, you are navigated to an edit form, the console will show an error
 - ERROR TypeError: Cannot read property 'question' of undefined
 
-Question#3 : 
+Question#3 :
 The "drop down control" isn't properly displaying the current topic of the card being edited (althoug it does correctly show the list of possible topics)
 
 Question#4
@@ -50,7 +50,12 @@ I'd tried to wire up the SAVE and CANCEL handlers in the CardItemEditComponent s
 Q - how to handle api errors, (simple version)
 try / catch in controller and return status code != 200
 
-Q - How to do it globally, by 
-a) on server add middle ware for centralized error handling 
+Q - How to do it globally, by
+a) on server add middle ware for centralized error handling
 b) display friendly message to user via global http inteceptor
 
+
+Question
+In reactiveForms, how come it is
+- enough to use attribute binding [formControl]="question" and not the two way binding
+- not needed to have banana in a box  [(formControl)]="question"

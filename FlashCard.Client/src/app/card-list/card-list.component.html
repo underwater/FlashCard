@@ -1,3 +1,2 @@
-<app-card-item class="m-3" *ngFor="let card of cards" [card]="card"
-(edit)="onEdit(card)" (delete)="onDelete(card)">
+<app-card-item class="m-3" *ngFor="let card of cards" [card]="card" (edit)="onEdit(card)" (editReactive)="onEditReactive(card)" (delete)="onDelete(card)">
 </app-card-item>

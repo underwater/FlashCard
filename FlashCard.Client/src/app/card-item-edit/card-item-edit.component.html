@@ -12,7 +12,10 @@
         <Label for="answer">Answer</Label>
         <textarea class="form-control" [(ngModel)]="card.answer" name="answer" id="answer"></textarea>
     </div>
-
+    <div class="form-check">
+        <input type="checkbox" class="form-check-input" [(ngModel)]="card.isFavorite" id="isFavorite">
+        <label class="form-check-label" for="isFavorite">Is Favorite</label>
+    </div>
     <!-- not showing the initial value of the topic when editing a card -->
     <div class="form-group">
         <Label for="topic">Topic</Label>
