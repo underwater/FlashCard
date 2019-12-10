@@ -34,6 +34,18 @@ Notes:
 - Using of a proxy file, is just to redirect another domain from the web pack server (i.e. without having the client be aware of the location of api server)
 - When to use enableCors attribute (doesn't seem to be needed)
 
+Question#1
+The console currently when on home page, shows an error "Uncaught (in promise) undefined"... What does this refer to ?
+
+Question#2
+If you 'edit' a card from the card list, you are navigated to an edit form, the console will show an error
+- ERROR TypeError: Cannot read property 'question' of undefined
+
+Question#3 : 
+The "drop down control" isn't properly displaying the current topic of the card being edited (althoug it does correctly show the list of possible topics)
+
+Question#4
+I'd tried to wire up the SAVE and CANCEL handlers in the CardItemEditComponent so that they either save or cancel changes.  Although the CANCEL button seems to work, the SAVE is returning a 405 HTTP status  .... Can you have a look and let me know the right way to save changes ?
 
 Q - how to handle api errors, (simple version)
 try / catch in controller and return status code != 200

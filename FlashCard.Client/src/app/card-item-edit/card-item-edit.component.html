@@ -3,7 +3,7 @@
 
 <!-- template driven -->
 
-<form>
+<form #frm="ngForm">
     <div class="form-group">
         <Label for="question">Question</Label>
         <input class="form-control" [(ngModel)]="card.question" type="text" name="question" id="question">
@@ -23,6 +23,9 @@
     </div>
 
 
-    <button class="btn btn-success" (click)="save()">Save</button>
-    <button class="btn btn-danger" (click)="cancel()">Cancel</button>
+    <button [disabled]="!frm.valid" class="btn btn-success" (click)="save()">Save</button>
+    <button [disabled]='!frm.dirty' class="btn btn-danger" (click)="cancel()">Cancel</button>
 </form>
+
+Valid {{frm.valid}}
+<br> Dirty {{frm.dirty}}
