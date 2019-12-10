@@ -2,7 +2,9 @@
 <div class="card">
     <div class="card-header">
         {{card.question}}
-        <button class="btn btn-info float-right" (click)="toggleAnswer()">{{isAnswerShown ? 'Hide' : 'Show'}}</button>
+        <button class="m-1 btn btn-outline-dark float-right" (click)="toggleAnswer()">{{isAnswerShown ? 'Hide' : 'Show'}}</button>
+        <button class="m-1 btn btn-outline-danger float-right" (click)="deleteCard($event)">Delete</button>
+        <button class="m-1 btn btn-outline-info float-right" (click)="editCard($event)">Edit</button>
     </div>
 
     <div *ngIf="isAnswerShown" class="card-body">

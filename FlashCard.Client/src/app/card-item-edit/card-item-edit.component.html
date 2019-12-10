@@ -1,0 +1,15 @@
+<h3>Edit Card</h3>
+
+
+<!-- template driven -->
+
+<form>
+    <div class="form-group">
+        <Label for="question">Question</Label>
+        <input class="form-control" [(ngModel)]="card.question" type="text" name="question" id="question">
+    </div>
+    <div class="form-group">
+        <Label for="answer">Answer</Label>
+        <textarea class="form-control" [(ngModel)]="card.answer" name="answer" id="answer"></textarea>
+    </div>
+</form>

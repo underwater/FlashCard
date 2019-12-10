@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CardItemComponent } from './card-item/card-item.component';
 import { TopicItemComponent } from './topic-item/topic-item.component';
 import { TopicItemAddComponent } from './topic-item-add/topic-item-add.component';
+import { CardItemEditComponent } from './card-item-edit/card-item-edit.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { TopicItemAddComponent } from './topic-item-add/topic-item-add.component
     TopicListComponent,
     CardItemComponent,
     TopicItemComponent,
-    TopicItemAddComponent
+    TopicItemAddComponent,
+    CardItemEditComponent
   ],
   imports: [
     BrowserModule,

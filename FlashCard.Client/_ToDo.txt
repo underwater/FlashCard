@@ -1,20 +1,23 @@
-
-show friendly error
-- if example trying to delete something I shouldn't
-
 reactive form add / edit questions
 - do it through navigation new page
 - do it through modal window
 
-forms
-- bootstrap, ng-bootstrap, or materials
+Are you sure ? (before Card delete)
 
 validation (green / red with messages)
 routing guard / prevent nav away if not saved / cancelled
 
+show friendly error
+- if example trying to delete something I shouldn't
+
+which forms controls
+- bootstrap, ng-bootstrap, or
+- materials / schemas ?
+
+Icons for buttons etc
+- Font awesome?
 
 Filter cards by topic, using topic drop down
-
 
 manual publish azure (free tier)
 

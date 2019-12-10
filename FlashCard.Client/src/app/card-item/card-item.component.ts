@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Card } from '../models/card.model';
 
 @Component({
@@ -7,6 +7,9 @@ import { Card } from '../models/card.model';
   styleUrls: ['./card-item.component.css']
 })
 export class CardItemComponent implements OnInit {
+  @Output() public edit: EventEmitter<any> = new EventEmitter();
+  @Output() public delete: EventEmitter<any> = new EventEmitter();
+
   @Input()
   card: Card;
   isAnswerShown = false;
@@ -18,5 +21,15 @@ export class CardItemComponent implements OnInit {
   toggleAnswer() {
     this.isAnswerShown = !this.isAnswerShown;
   }
+
+  deleteCard(card: Card) {
+    this.delete.emit(card);
+  }
+
+  editCard(card: Card) {
+   this.edit.emit(card);
+ 
+  }
+
 
 }
