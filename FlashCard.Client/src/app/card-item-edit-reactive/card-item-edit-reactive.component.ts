@@ -18,8 +18,10 @@ export class CardItemEditReactiveComponent implements OnInit {
 
   editForm: FormGroup = new FormGroup({
     id: new FormControl(),
-    question: new FormControl(),
-    answer: new FormControl(),
+    // TODO: I don't wish to set the initial control value, just want to set a validator
+    // question: new FormControl(Validators.required),
+    question: new FormControl(null, [Validators.required]),
+    answer: new FormControl(null, [Validators.required]),
     isFavorite: new FormControl(),
     topic: new FormControl(null, Validators.required)
   });
