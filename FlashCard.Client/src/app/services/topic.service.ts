@@ -1,7 +1,15 @@
 import { Topic } from '../models/topic.model';
 import { OnInit, Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json'
+  })
+}
+
 
 @Injectable()
 export class TopicService {
@@ -11,14 +19,14 @@ export class TopicService {
   }
 
   getTopics(): Observable<Topic[]> {
-    return this.http.get<Topic[]>('/api/topics');
+    return this.http.get<Topic[]>('/api/topics', httpOptions);
   }
 
   addTopic(topic: Topic): Observable<Topic> {
-    return this.http.post<Topic>('/api/topics', topic);
+    return this.http.post<Topic>('/api/topics', topic, httpOptions);
   }
 
   deleteTopic(topic: Topic): Observable<Topic> {
-    return this.http.delete<Topic>('/api/topics/' + topic.id);
+    return this.http.delete<Topic>('/api/topics/' + topic.id, httpOptions);
   }
 }

@@ -1,11 +1,20 @@
-disable submit to add topic if user didn't type anything in text box
 
-display friendly error message if remove topic fails
+show friendly error
+- if example trying to delete something I shouldn't
+
+reactive form add / edit questions
+- do it through navigation new page
+- do it through modal window
+
+forms
+- bootstrap, ng-bootstrap, or materials
+
+validation (green / red with messages)
+routing guard / prevent nav away if not saved / cancelled
+
 
 Filter cards by topic, using topic drop down
 
-add / remove / edit questions
-- user navigation / or modal window ?
 
 manual publish azure (free tier)
 

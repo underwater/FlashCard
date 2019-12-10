@@ -1,21 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Card } from '../models/card.model';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CardsService {
 
-  public cards: Card[];
   private url = '/api/cards';
 
   constructor(private http: HttpClient) {
-    this.getCards();
   }
 
-  getCards() {
-    this.http.get<Card[]>(this.url)
-      .subscribe(res => this.cards = res);
+  getCards(): Observable<Card[]> {
+    return this.http.get<Card[]>(this.url);
   }
 }

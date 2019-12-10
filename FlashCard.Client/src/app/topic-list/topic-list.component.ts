@@ -35,7 +35,7 @@ export class TopicListComponent implements OnInit {
         this.topics = this.topics.filter(t => t.id !== res.id);
       },
       err => {
-        console.log(err)
+        console.log(err);
       });
 
   }

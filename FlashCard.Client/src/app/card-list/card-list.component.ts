@@ -9,11 +9,13 @@ import { Card } from '../models/card.model';
   styleUrls: ['./card-list.component.css']
 })
 export class CardListComponent implements OnInit {
+
   public cards: Card[];
+
   constructor(private cardService: CardsService) { }
 
   ngOnInit() {
-    this.cards = this.cardService.cards;
+    this.cardService.getCards().subscribe(result => this.cards = result)
   }
 
 }
