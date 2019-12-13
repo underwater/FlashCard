@@ -27,11 +27,11 @@ export class CardItemEditReactiveComponent implements OnInit {
   // });
 
   editForm = this.formBuilder.group({
-    id: [''],
-    question: ['', Validators.required],
-    answer: ['', Validators.required],
-    isFavorite: [''],
-    topic: ['', Validators.required]
+    id: [null],
+    question: [null, Validators.required],
+    answer: [null, Validators.required],
+    isFavorite: [null],
+    topic: [null, Validators.required]
   });
 
   constructor(
@@ -52,8 +52,14 @@ export class CardItemEditReactiveComponent implements OnInit {
       this.editForm.setValue(card);
     }
     );
+    this.editForm.get('topic').valueChanges.subscribe(
+      (res) => {
 
-    this.editForm.valueChanges.subscribe(value => console.log(value));
+        console.log('topic', JSON.stringify(this.editForm.get('topic').value));
+        console.log('topic', JSON.stringify(res));
+      });
+
+
   }
 
   save() {
