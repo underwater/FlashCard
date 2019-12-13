@@ -47,18 +47,23 @@ export class CardItemEditReactiveComponent implements OnInit {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
 
     // TODO: Is this the right way to initialize the form from service ?
-    this.cardService.getCard(+id).subscribe(card => this.editForm.setValue(card));
+    this.cardService.getCard(+id).subscribe(card => {
+      this.card = card;
+      this.editForm.setValue(card);
+    }
+    );
 
     this.editForm.valueChanges.subscribe(value => console.log(value));
   }
 
   save() {
-    this.cardService.saveCard(this.card)
-      .subscribe(
-        result => console.log('saved card', result),
-        // TODO: getting a "Bad Request" 400 error
-        err => console.log('error: ', err)
-      );
+    console.log('saving card', this.card),
+      this.cardService.saveCard(this.card)
+        .subscribe(
+          result => console.log('saved card', result),
+          // TODO: getting a "Bad Request" 400 error
+          err => console.log('error: ', err)
+        );
   }
 
   // TODO: getting Form submission canceled because the form is not connected

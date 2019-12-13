@@ -60,6 +60,12 @@ In reactiveForms, how come it is
 - enough to use attribute binding [formControl]="question" and not the two way binding
 - not needed to have banana in a box  [(formControl)]="question"
 
-How does the dialog-service work
-understand the rxJs code
-Is all of this necessary ?
+Question / Dialog Service
+- How does the dialog-service work
+- understand the rxJs code
+- Is all of this necessary ?
+
+ASP.NET Identity vs IdentityServer
+-- ASP.NET Identity is a database API to manage users, roles, claims, email confirmation tokens etc. Something you can use for implementing signup, login, change password etc.
+
+-- IdentityServer is an OpenID Connect and OAuth 2.0 implementation. It gives you features like single sign-on and API access control. This is useful if you want to share users between multiple client applications.
