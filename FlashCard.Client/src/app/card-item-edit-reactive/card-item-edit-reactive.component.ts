@@ -29,7 +29,8 @@ export class CardItemEditReactiveComponent implements OnInit {
   editForm = this.formBuilder.group({
     id: [null],
     question: [null, Validators.required],
-    answer: [null, Validators.required],
+    // TODO: Add blackListedWordValidator
+    answer: [null], // blackListedWordValidator
     isFavorite: [null],
     topic: [null, Validators.required]
   });
@@ -55,8 +56,8 @@ export class CardItemEditReactiveComponent implements OnInit {
     this.editForm.get('topic').valueChanges.subscribe(
       (res) => {
 
-        console.log('topic', JSON.stringify(this.editForm.get('topic').value));
-        console.log('topic', JSON.stringify(res));
+        console.log('topic', this.editForm.get('topic'));
+        console.log('topic', res);
       });
 
 

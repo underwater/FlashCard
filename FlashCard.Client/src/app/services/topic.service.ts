@@ -2,6 +2,7 @@ import { Topic } from '../models/topic.model';
 import { OnInit, Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 
 const httpOptions = {
@@ -13,20 +14,22 @@ const httpOptions = {
 
 @Injectable()
 export class TopicService {
+  private baseUrl = environment.serverRoute;
+  private readonly url = `${this.baseUrl}/api/topics`;
 
   constructor(private http: HttpClient) {
-    this.getTopics();
+
   }
 
   getTopics(): Observable<Topic[]> {
-    return this.http.get<Topic[]>('/api/topics', httpOptions);
+    return this.http.get<Topic[]>(this.url, httpOptions);
   }
 
   addTopic(topic: Topic): Observable<Topic> {
-    return this.http.post<Topic>('/api/topics', topic, httpOptions);
+    return this.http.post<Topic>(`${this.baseUrl}/api/topics`, topic, httpOptions);
   }
 
   deleteTopic(topic: Topic): Observable<Topic> {
-    return this.http.delete<Topic>('/api/topics/' + topic.id, httpOptions);
+    return this.http.delete<Topic>(`${this.baseUrl}/api/topics/` + topic.id, httpOptions);
   }
 }

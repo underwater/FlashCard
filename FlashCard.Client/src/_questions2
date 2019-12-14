@@ -1,0 +1,24 @@
+How to fix the CardService PUT action to persist CardService
+Should TOPIC be a full object, or just ID ?
+
+
+Question
+In reactiveForms, how come it is
+- enough to use attribute binding [formControl]="question" and not the two way binding
+- not needed to have banana in a box  [(formControl)]="question"
+ - Is binding still at play?
+
+
+global filter / Asp.Net
+- Handle errors (define own errors 600 - 899) for EF?
+- https://code-maze.com/global-error-handling-aspnetcore/
+- try-catch blocks
+- Built-In Middleware /  UseExceptionHandler
+- Custom Action Filters.
+
+Question / friendly display of messages,
+- How does the dialog-service work
+- understand the rxJs code
+- Is all of this necessary ?
+
+Authentication, Tokens, Identity etc.

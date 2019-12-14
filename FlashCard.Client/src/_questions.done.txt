@@ -1,3 +1,5 @@
+Only matters in the context of browser...
+
 Q - 1  blocked by CORS policy
 Basically the problem is that by design the browsers have a same-origin policy which
 won't allow JS existing on page hosted on site A to make Ajax call to Site B
@@ -30,24 +32,17 @@ the browser  detects if request is cross domain without any additional info
 An Access-Control-Allow-Origin header with the value * indicates that any client can access this resource.
 In fact, the simplest way to add CORS support to a server is to add Access-Control-Allow-Origin: * to every response
 
-Notes:
+Angular / Proxy
 - Using of a proxy file, is just to redirect another domain from the web pack server (i.e. without having the client be aware of the location of api server)
 - When to use enableCors attribute (doesn't seem to be needed)
 
-Question#1
+Question / Uncaught (in promise) undefined
 The console currently when on home page, shows an error "Uncaught (in promise) undefined"... What does this refer to ?
 
-Question#2
-If you 'edit' a card from the card list, you are navigated to an edit form, the console will show an error
-- ERROR TypeError: Cannot read property 'question' of undefined
+Question / "drop down control"
+isn't properly displaying the current topic of the card being edited (althoug it does correctly show the list of possible topics)
 
-Question#3 :
-The "drop down control" isn't properly displaying the current topic of the card being edited (althoug it does correctly show the list of possible topics)
-
-Question#4
-I'd tried to wire up the SAVE and CANCEL handlers in the CardItemEditComponent so that they either save or cancel changes.  Although the CANCEL button seems to work, the SAVE is returning a 405 HTTP status  .... Can you have a look and let me know the right way to save changes ?
-
-Q - how to handle api errors, (simple version)
+Question /  how to handle api errors, (simple version)
 try / catch in controller and return status code != 200
 
 Q - How to do it globally, by
@@ -55,17 +50,19 @@ a) on server add middle ware for centralized error handling
 b) display friendly message to user via global http inteceptor
 
 
-Question
-In reactiveForms, how come it is
-- enough to use attribute binding [formControl]="question" and not the two way binding
-- not needed to have banana in a box  [(formControl)]="question"
 
-Question / Dialog Service
-- How does the dialog-service work
-- understand the rxJs code
-- Is all of this necessary ?
+
+Question / Usage of HTTP,
+What if I subscribe to the service and set a property inside service with result
+In c# due to explicit change notification, would have worked.
+
+
+Question /
+- Custom validators,
 
 ASP.NET Identity vs IdentityServer
 -- ASP.NET Identity is a database API to manage users, roles, claims, email confirmation tokens etc. Something you can use for implementing signup, login, change password etc.
-
 -- IdentityServer is an OpenID Connect and OAuth 2.0 implementation. It gives you features like single sign-on and API access control. This is useful if you want to share users between multiple client applications.
+
+CI, CI, DevOps
+Azure, (3) clients, templates vs.

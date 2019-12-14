@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using FlashCard.Api.Errors;
 using FlashCard.Api.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,12 +31,13 @@ namespace FlashCard.Api
         {
             services.AddDbContext<DataContext>(opt => 
                     opt.UseSqlServer(Configuration.GetConnectionString("FlashCardDb")));
-            
-            services.AddCors(o => o.AddPolicy("AllowAnyOrigin", builder => {
+
+            services.AddCors(o => o.AddPolicy("AllowAnyOrigin", builder =>
+            {
                 builder.AllowAnyOrigin()
                     .AllowAnyMethod()
                     .AllowAnyHeader();
-                    //.WithExposedHeaders("WWW-Authenticate");
+                //.WithExposedHeaders("WWW-Authenticate");
             }));
 
             services.AddControllers();
@@ -52,7 +54,10 @@ namespace FlashCard.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            // TODO: Where should this be place ?
+
+            app.UseMiddleware<EFExceptionMiddleware>();
+         //   app.UseHttpsRedirection();
 
             app.UseRouting();
 

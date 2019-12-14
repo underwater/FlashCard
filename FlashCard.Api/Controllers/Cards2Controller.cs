@@ -6,40 +6,32 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using FlashCard.Api.Models;
-using Microsoft.AspNetCore.Cors;
 
 namespace FlashCard.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    // https://www.c-sharpcorner.com/article/enabling-cors-in-asp-net-core-api-application/
-    // this doesn't seem needed
-    //[EnableCors("AllowAnyOrigin")]
-    public class CardsController : ControllerBase
+    public class Cards2Controller : ControllerBase
     {
         private readonly DataContext _context;
 
-        public CardsController(DataContext context)
+        public Cards2Controller(DataContext context)
         {
             _context = context;
         }
 
-        // GET: api/Cards
+        // GET: api/Cards2
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Card>>> GetCards()
         {
-            return await _context.Cards
-                .Include(c => c.Topic)
-                .ToListAsync();
+            return await _context.Cards.ToListAsync();
         }
 
-        // GET: api/Cards/5
+        // GET: api/Cards2/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Card>> GetCard(int id)
         {
-            var card = await _context.Cards
-                .Include(c => c.Topic)
-                .FirstOrDefaultAsync(c => c.Id == id);
+            var card = await _context.Cards.FindAsync(id);
 
             if (card == null)
             {
@@ -49,6 +41,10 @@ namespace FlashCard.Api.Controllers
             return card;
         }
 
+        // PUT: api/Cards2/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for
+        // more details see https://aka.ms/RazorPagesCRUD.
+        [HttpPut("{id}")]
         public async Task<IActionResult> PutCard(int id, Card card)
         {
             if (id != card.Id)
@@ -77,7 +73,7 @@ namespace FlashCard.Api.Controllers
             return NoContent();
         }
 
-        // POST: api/Cards
+        // POST: api/Cards2
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
@@ -89,7 +85,7 @@ namespace FlashCard.Api.Controllers
             return CreatedAtAction("GetCard", new { id = card.Id }, card);
         }
 
-        // DELETE: api/Cards/5
+        // DELETE: api/Cards2/5
         [HttpDelete("{id}")]
         public async Task<ActionResult<Card>> DeleteCard(int id)
         {

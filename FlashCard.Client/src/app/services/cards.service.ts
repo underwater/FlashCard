@@ -13,7 +13,7 @@ const httpOptions = {
 })
 export class CardsService {
 
-  private url = '/api/cards';
+  private url = 'http://localhost:5000/api/cards';
 
   constructor(private http: HttpClient) {
   }

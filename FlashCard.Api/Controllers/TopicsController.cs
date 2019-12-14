@@ -27,7 +27,7 @@ namespace FlashCard.Api.Controllers
         // GET: api/Topics
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Topic>>> GetTopics()
-        {   
+        {
             return await _context
                 .Topics
                 .ToListAsync();
@@ -101,17 +101,8 @@ namespace FlashCard.Api.Controllers
                 return NotFound();
             }
 
-            try
-            {
-                _context.Topics.Remove(topic);
-                await _context.SaveChangesAsync();
-            }
-            catch (Exception ex)
-            {
-                return BadRequest(ex.Message);
-            }
-    
-
+            _context.Topics.Remove(topic);
+            await _context.SaveChangesAsync();
             return topic;
         }
 

@@ -32,6 +32,13 @@ export class TopicListComponent implements OnInit {
         this.topics = this.topics.filter(t => t.id !== res.id);
       },
       err => {
+        // window.onunhandledrejection = err => {
+        //   if (err.status) {
+        //     //handle http errors
+        //   }
+        // }
+        // depending on error present something to user
+
         console.log(err);
       });
   }
