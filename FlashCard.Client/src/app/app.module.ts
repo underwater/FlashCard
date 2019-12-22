@@ -16,6 +16,9 @@ import { TopicItemAddComponent } from './topic-item-add/topic-item-add.component
 import { CardItemEditComponent } from './card-item-edit/card-item-edit.component';
 import { CardItemEditReactiveComponent } from './card-item-edit-reactive/card-item-edit-reactive.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
+import { DialogsService } from './services/dialogs.service';
+import { DeletePromptComponent } from './dialogs/delete-prompt/delete-prompt.component';
+import { DialogsRootComponent } from './dialogs/dialogs-root/dialogs-root.component';
 
 
 @NgModule({
@@ -29,7 +32,9 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     TopicItemAddComponent,
     CardItemEditComponent,
     CardItemEditReactiveComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    DeletePromptComponent,
+    DialogsRootComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +43,7 @@ import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.componen
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [TopicService],
+  providers: [TopicService, DialogsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

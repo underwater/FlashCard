@@ -1,5 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, Injector } from '@angular/core';
 import { Topic } from '../models/topic.model';
+import { DialogsService } from '../services/dialogs.service';
+import { DialogsRootComponent } from '../dialogs/dialogs-root/dialogs-root.component';
 
 
 @Component({
@@ -12,13 +14,17 @@ export class TopicItemComponent implements OnInit {
   @Input() public topic: Topic;
   @Output() public deleteTopic: EventEmitter<any> = new EventEmitter();
 
-  constructor() { }
+  constructor(private _dialogsService: DialogsService) { }
 
   ngOnInit() {
   }
 
   OnDeleteTopic(topic: Topic) {
-    this.deleteTopic.emit(topic);
+    /**
+     * this._dialogsService.open<DeletePromptComponent>(config).then(res => {...});
+     */
+    this._dialogsService.open("delete-prompt");
+    // this.deleteTopic.emit(topic);
   }
 
 }
