@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { DialogsService } from 'src/app/services/dialogs.service';
 
 @Component({
     selector: 'delete-prompt',
@@ -9,15 +10,15 @@ export class DeletePromptComponent implements OnInit {
     @Input()
     message: string;
     
-    constructor() { }
+    constructor(private _dialogsService: DialogsService) { }
 
     ngOnInit() { }
 
     yes() {
-
+        this._dialogsService.close(true);
     }
 
     no() {
-        
+        this._dialogsService.close(false);
     }
 }

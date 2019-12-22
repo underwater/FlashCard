@@ -7,6 +7,7 @@ export class DialogsService {
     protected _supportedModalNames = [
         "delete-prompt"
     ];
+    private _resolver;
 
     private checkSupportedModalName(modalName) {
         if(!this._supportedModalNames.includes(modalName)) {
@@ -20,8 +21,16 @@ export class DialogsService {
         this._component = component;
     }
     
-    open(modalName: string) {
-        this.checkSupportedModalName(modalName);
-        this._component.open(modalName);
+    open(modalName: string, options): Promise<any> {
+        var promise = new Promise((resolve, reject) => {
+            this._resolver = resolve;
+            this.checkSupportedModalName(modalName);
+            this._component.open(modalName, options);
+        });
+        return promise;
+    }
+
+    close<T>(response: T) {
+        this._resolver(response);
     }
 }

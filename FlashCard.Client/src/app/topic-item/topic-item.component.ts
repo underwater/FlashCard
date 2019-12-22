@@ -23,7 +23,16 @@ export class TopicItemComponent implements OnInit {
     /**
      * this._dialogsService.open<DeletePromptComponent>(config).then(res => {...});
      */
-    this._dialogsService.open("delete-prompt");
+    this._dialogsService.open("delete-prompt", {
+      message: "Are you sure you want to delete this topic?"
+    }).then(res => {
+      if(res) {
+        //yes
+      }
+      else {
+        //no
+      }
+    });
     // this.deleteTopic.emit(topic);
   }
 
