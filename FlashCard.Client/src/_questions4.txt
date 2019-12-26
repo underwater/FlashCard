@@ -1,0 +1,45 @@
+Authentication, JWT Tokens, Identity etc.
+- flow, exchange,
+
+Angular Dialog service
+- How does the dialog-service work
+
+Server side / Error handling
+- Handle errors (define own errors 600 - 899) for EF?
+- try-catch blocks
+- Built-In Middleware /  UseExceptionHandler
+- Custom Action Filters.
+
+Client Side / Error handling
+- display friendly message to user via global http inteceptor
+
+Angular / Proxy
+- Using of a proxy file, means we don't need to think about CORS right ?
+
+
+JavaScript Basics
+Arrow functions don't have their own 'context' or 'this' (why?)
+Callbacks and closure, this, lambda functions
+Asynchrony, Async / await, Promises, Process Worker
+
+
+
+NODE JS
+-------
+STD IN, STD OUT ETC.
+- Is this just a linux thing ?
+
+DEBUGGING
+The Chrome V8 engine in Nodejs implements a protocol called the V8 Inspector Protocol or Chrome Debugging Protocol /
+it provides debugging clients with a way to communicate with the engine itself (using web sockets)
+How to attach from VSCode / How to attach from Chrome
+Do we need to launch node with  –inspect and (how is that different from –debug)?
+
+EVENT emitters
+When the EventEmitter object emits an event, all of the functions attached to that
+specific event are called synchronously. All values returned by the called listeners are ignored and will be discarded.
+
+STREAMS
+PROMISES
+PROCESS WORKER
+CHILD THREADS
