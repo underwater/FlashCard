@@ -1,0 +1,18 @@
+Callback, Async / Await, Promises
+TypeScript (Patterns), Partial (Takes Class / Interface)
+Error Handling / DI, Providers
+Observables, RX JS,
+Directives / PIPES / Component Life Cycle Hooks (NgOnInit)
+DOM Manipulation, ElmentRef, ViewChild, View Encapsulation
+Reactive Form
+Reactive Form
+Form Validation
+Change Tracking, Change Detection,
+Routing / Parameters / Guards
+Module, Lazy Loading
+Transclusion (for when passing @Input isn’t enough (like wanting to pass HTML))
+Simple Dialog Service
+Custom Decorators
+Dynamic Dialog Service
+HTTP Interceptors
+CLI, Webpack, etc.
