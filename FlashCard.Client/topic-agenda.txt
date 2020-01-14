@@ -16,3 +16,4 @@ Custom Decorators
 Dynamic Dialog Service
 HTTP Interceptors
 CLI, Webpack, etc.
+Testing: Jasmine, Protractor, Nighmare.js etc.
