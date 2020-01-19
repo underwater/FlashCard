@@ -9,7 +9,7 @@ import { CardListComponent } from './card-list/card-list.component';
 import { TopicListComponent } from './topic-list/topic-list.component';
 import { TopicService } from './services/topic.service';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CardItemComponent } from './card-item/card-item.component';
 import { TopicItemComponent } from './topic-item/topic-item.component';
 import { TopicItemAddComponent } from './topic-item-add/topic-item-add.component';
@@ -20,7 +20,8 @@ import { DialogsService } from './services/dialogs.service';
 import { DeletePromptComponent } from './dialogs/delete-prompt/delete-prompt.component';
 import { DialogsRootComponent } from './dialogs/dialogs-root/dialogs-root.component';
 
-
+export const TOPIC_SERVICE = "asfgiasdfafasd";
+export const SERVER_ROOT = Symbol.for("SERVER_ROOT");
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,26 @@ import { DialogsRootComponent } from './dialogs/dialogs-root/dialogs-root.compon
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [TopicService, DialogsService],
+  providers: [
+    TopicService,
+    DialogsService, 
+    {
+      provide: SERVER_ROOT,
+      useValue: "https://localhost:5001"
+    }
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor() {
+   
+  }
+
+}
+
+//1. How to register a Service
+//2. How to register different scopes (singleton, transient)
+//3. What tokens are
+//4. Error Handling
+
+//define("TopicService", ["HttpClient", "AuthService"], (httpClient, authService) => {  })

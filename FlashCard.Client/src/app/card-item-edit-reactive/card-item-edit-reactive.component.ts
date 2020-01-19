@@ -5,6 +5,8 @@ import { Topic } from '../models/topic.model';
 import { Card } from '../models/card.model';
 import { CardsService } from '../services/cards.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { inject } from '@angular/core/testing';
+import { TOPIC_SERVICE } from '../app.module';
 
 @Component({
   selector: 'app-card-item-edit-reactive',

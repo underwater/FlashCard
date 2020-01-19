@@ -1,8 +1,9 @@
 import { Topic } from '../models/topic.model';
-import { OnInit, Injectable } from '@angular/core';
+import { OnInit, Injectable, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { SERVER_ROOT } from '../app.module';
 
 
 const httpOptions = {
@@ -17,8 +18,8 @@ export class TopicService {
   private baseUrl = environment.serverRoute;
   private readonly url = `${this.baseUrl}/api/topics`;
 
-  constructor(private http: HttpClient) {
-
+  constructor(private http: HttpClient, @Inject(SERVER_ROOT) serverRoot: string) {
+    
   }
 
   getTopics(): Observable<Topic[]> {
