@@ -4,12 +4,34 @@
             <i class="mr-2 fas fa-user"></i> FlashCards
         </a>
         <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Error Handling</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" routerLink="/NoSuchRoute">Client: Navigation Error</a>
+                    <a class="dropdown-item" routerLink="/ErrorHandling/HandledClientException">Client: Handled Client
+            Exception</a>
+                    <a class="dropdown-item" routerLink="/ErrorHandling/UnhandledClientException">Client: Unhandled Client
+            Exception</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" routerLink="/ErrorHandling/NoSuchServerEndPoint">Server: No Such Server EndPoint</a>
+                    <a class="dropdown-item" routerLink="/ErrorHandling/HandledServerException">Server: Handled Server
+            Exception</a>
+                    <a class="dropdown-item" routerLink="/ErrorHandling/UnhandledServerException">Server: Unhandled Server
+            Exception</a>
+
+                </div>
+            </li>
             <li class="navbar-item">
                 <a routerLink="/Cards" class="nav-link">Cards</a>
             </li>
             <li class="navbar-item">
                 <a routerLink="/Topics" class="nav-link">Topics</a>
             </li>
+
+
         </ul>
+
     </div>
+
+
 </nav>
