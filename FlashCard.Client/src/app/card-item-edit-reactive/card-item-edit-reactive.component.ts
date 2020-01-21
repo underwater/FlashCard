@@ -5,6 +5,7 @@ import { Topic } from '../models/topic.model';
 import { Card } from '../models/card.model';
 import { CardsService } from '../services/cards.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { blackListedWordValidator } from '../validators/blacklisted-word-validator';
 
 @Component({
   selector: 'app-card-item-edit-reactive',
@@ -16,21 +17,10 @@ export class CardItemEditReactiveComponent implements OnInit {
   topics: Topic[];
   card: Card;
 
-  // editForm: FormGroup = new FormGroup({
-  //   id: new FormControl(),
-  //   // TODO: I don't wish to set the initial control value, just want to set a validator
-  //   // question: new FormControl(Validators.required),
-  //   question: new FormControl(null, [Validators.required]),
-  //   answer: new FormControl(null, [Validators.required]),
-  //   isFavorite: new FormControl(),
-  //   topic: new FormControl(null, Validators.required)
-  // });
-
   editForm = this.formBuilder.group({
     id: [null],
-    question: [null, Validators.required],
-    // TODO: Add blackListedWordValidator
-    answer: [null], // blackListedWordValidator
+    question: ['', [Validators.required, blackListedWordValidator]],
+    answer: [null],
     isFavorite: [null],
     topic: [null, Validators.required]
   });
@@ -59,8 +49,6 @@ export class CardItemEditReactiveComponent implements OnInit {
         console.log('topic', this.editForm.get('topic'));
         console.log('topic', res);
       });
-
-
   }
 
   save() {

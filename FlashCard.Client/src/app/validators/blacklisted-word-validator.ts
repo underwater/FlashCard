@@ -1,8 +1,9 @@
-import { FormControl } from '@angular/forms';
+import { FormControl, AbstractControl } from '@angular/forms';
 
-function blackListedWordValidator(c: FormControl) {
-  const blockedDomain = '.gr';
-  const isValid = blockedDomain.includes(c.value);
+export function blackListedWordValidator(c: FormControl) {
+  const blockedWords = 'xxx';
+  // TODO: why is c null?
+  const isValid = !c.value.inlcudes(blockedWords);
   return isValid ? null : {
     blackListedWordValidator: {
       valid: false
