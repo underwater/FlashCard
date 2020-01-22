@@ -72,7 +72,7 @@ export class ErrorHandlingComponent implements OnInit {
 
   NoSuchServerEndPoint() {
     // TODO: should this time out and return promise rejection?
-    this.http.get('no such url');
+    this.http.get('no such url').subscribe();
     // .catchError(err => console.log(err));
   }
 
