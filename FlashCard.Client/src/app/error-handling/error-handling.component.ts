@@ -9,51 +9,12 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./error-handling.component.css']
 })
 export class ErrorHandlingComponent implements OnInit {
-
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
-
   private baseUrl = environment.serverRoute;
+  private readonly url = `${this.baseUrl}/api/ErrorHandling`;
 
-  action: string;
+  constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    //
-    // TODO: why wont be  snapshot only triggered when we navigate away from component, and navigate back,
-    this.action = this.route.snapshot.params.action;
-    console.log(this.action);
-
-    // observable
-    this.route.paramMap.subscribe((params: ParamMap) => {
-      this.runAction(params.get('action'));
-    });
-  }
-  runAction(action: string) {
-    switch (action) {
-      case 'UnhandledClientException':
-        // TODO: why prefixing 'this' doesn't work??
-        // this.UnhandledClientException();
-        this.UnhandledClientException();
-        break;
-
-      case 'HandledClientException':
-        this.HandledClientException();
-        break;
-
-      case 'NoSuchServerEndPoint':
-        this.NoSuchServerEndPoint();
-        break;
-
-      case 'UnhandledServerException':
-        this.UnhandledServerException();
-        break;
-
-      case 'HandledServerException':
-        this.HandledServerException();
-        break;
-
-      default:
-        break;
-    }
   }
 
   UnhandledClientException() {

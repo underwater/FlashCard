@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'Topics', component: TopicListComponent },
   { path: 'card/editreactive/:id', component: CardItemEditReactiveComponent },
   { path: 'card/edit/:id', component: CardItemEditComponent },
-  { path: 'ErrorHandling/:action', component: ErrorHandlingComponent }
+  { path: 'ErrorHandling', component: ErrorHandlingComponent }
 ];
 
 @NgModule({
