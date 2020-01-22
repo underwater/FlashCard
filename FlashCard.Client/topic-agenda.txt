@@ -1,6 +1,7 @@
 Callback, Async / Await, Promises
 TypeScript (Patterns), Partial (Takes Class / Interface)
-Error Handling / DI, Providers
+DI, Providers
+Error Handling (both front end / backend)
 
 Observables, RX JS,
 Directives / PIPES / Component Life Cycle Hooks (NgOnInit)

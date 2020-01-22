@@ -1,10 +1,11 @@
 <div>
     <div class="card m-3">
-        <div class="card-body">
+        <div class="card-body bg-light">
             <h4 class="card-title">Client Side Errors</h4>
         </div>
         <ul class="list-group list-group-flush">
             <a class="list-group-item list-group-item-action" routerLink="/NoSuchRoute">Navigation Error</a>
+            <a class="list-group-item list-group-item-action" (click)='NoSuchHandler()'>Event Handler binding Error</a>
             <a class="list-group-item list-group-item-action" (click)='HandledClientException()'>Handled Client
         Exception</a>
             <a class="list-group-item list-group-item-action" (click)='UnhandledClientException()'>Unhandled Client
@@ -12,12 +13,12 @@
         </ul>
     </div>
     <div class="card m-3">
-        <div class="card-body">
+        <div class="card-body  bg-light">
             <h4 class="card-title">Server Side Errors</h4>
         </div>
         <ul class="list-group list-group-flush">
-            <a class="list-group-item list-group-item-action" (click)='NoSuchServerEndPoint()'>No Such Server
-        EndPoint</a>
+            <a class="list-group-item list-group-item-action" (click)='NoSuchServerEndPoint()'>No Such Server</a>
+            <!-- EndPoint</a> TODO: what happens if the click binding was pointing to a wrong function -->
             <a class="list-group-item list-group-item-action" (click)='HandledServerException()'>Handled Server
         Exception</a>
             <a class="list-group-item list-group-item-action" (click)='UnhandledServerException()'>Unhandled Server

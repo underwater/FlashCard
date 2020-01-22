@@ -3,8 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FlashCard.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
+    // TODO: not sure why not reacheable
     public class ErrorHandlingController : ControllerBase
     {
         [HttpGet]
@@ -13,6 +14,7 @@ namespace FlashCard.Api.Controllers
         }
 
         [HttpGet]
+        //[Route('/HandledException')]
         public IActionResult HandledException()
         {
             try
@@ -22,11 +24,12 @@ namespace FlashCard.Api.Controllers
             catch (Exception ex)
             {
 
-                return BadRequest(ex);
+                return BadRequest(ex.Message);
             }
         }
 
         [HttpGet]
+        //[Route('/UnhandledException')]
         public IActionResult UnhandledException()
         {
             throw new InvalidOperationException("Unhandled Server Exception");

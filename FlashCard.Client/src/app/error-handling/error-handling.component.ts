@@ -13,8 +13,16 @@ export class ErrorHandlingComponent implements OnInit {
   private readonly url = `${this.baseUrl}/api/ErrorHandling`;
 
   constructor(private http: HttpClient) { }
+  /*
+  1st / context of error
+    synchrounous errors (types ,etc) --> use try / catch
+    asynchrounous errors () 'promise rejection' --> use .catch() chaining
 
+    try / catch --> can be used with async methods can be used
+
+  */
   ngOnInit() {
+
   }
 
   UnhandledClientException() {
@@ -26,7 +34,7 @@ export class ErrorHandlingComponent implements OnInit {
       throw new Error('Handled client exception');
     } catch (ex) {
       // TODO: doesn't seem to run after exception caught
-      console.log('handled error', ex);
+      console.error('handled error', ex);
     }
 
   }

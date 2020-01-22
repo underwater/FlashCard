@@ -50,7 +50,7 @@ namespace FlashCard.Api
 
             // TODO: Where should this be place ?
 
-            app.UseMiddleware<EFExceptionMiddleware>();
+        //    app.UseMiddleware<EFExceptionMiddleware>();
          //   app.UseHttpsRedirection();
 
             app.UseRouting();
