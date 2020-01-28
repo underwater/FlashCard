@@ -1,4 +1,4 @@
-import { Component, OnInit, createPlatformFactory, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, OnInit, createPlatformFactory, OnDestroy, } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { TopicService } from '../services/topic.service';
 import { Topic } from '../models/topic.model';
@@ -13,7 +13,7 @@ import { Observable, Subscription } from 'rxjs';
   templateUrl: './card-item-edit-reactive.component.html',
   styleUrls: ['./card-item-edit-reactive.component.css']
 })
-export class CardItemEditReactiveComponent implements OnInit, AfterViewInit, OnDestroy {
+export class CardItemEditReactiveComponent implements OnInit, OnDestroy {
 
   constructor(
     private topicService: TopicService,
@@ -25,7 +25,8 @@ export class CardItemEditReactiveComponent implements OnInit, AfterViewInit, OnD
 
   topics: Topic[];
   card: Card;
-  subscription: Subscription;
+  initialLoad: Subscription;
+  noRules: Subscription;
 
   editForm = this.formBuilder.group({
     norules: [false],
@@ -36,55 +37,35 @@ export class CardItemEditReactiveComponent implements OnInit, AfterViewInit, OnD
     topic: [null, Validators.required]
   });
 
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
-
-  /*
-
-
-
- 2)  drop down of introduce list of card types, should not make it now a
-
- 3)  addd css styling to capture validation classes red / green borders
-
- 4) handling multiple instances of the same form
-
-  */
 
   ngOnInit() {
     this.topicService.getTopics().subscribe(values => this.topics = values);
     const id = this.activatedRoute.snapshot.paramMap.get('id');
 
-    // TODO: Is this the right way to initialize the form from service ?
-    // tslint:disable-next-line:radix
-
-    this.subscription = this.cardService.getCard(parseInt(id))
+    this.initialLoad = this.cardService.getCard(+id)
       .subscribe(
         card => { this.editForm.patchValue(card); },
         err => { },
         () => { });
 
-
-
-
-
-  }
-  // TODO: since form will be destroyed with control, no need to explicitly unsubscribe, right ?
-  // TODO: strange, not able to get hold of this field, (Error: Must supply a value for form control with name: 'norules').
-
-  ngAfterViewInit() {
-    this.editForm.get('norules').valueChanges.subscribe(state => this.updateValidationRules(state));
+    this.noRules = this.editForm.get('norules').valueChanges.subscribe(state => this.updateValidationRules(state));
   }
 
-  updateValidationRules(state: boolean) {
+  ngOnDestroy(): void {
+    this.initialLoad.unsubscribe();
+    // TODO: since form will be destroyed with control, no need to explicitly unsubscribe, right ?
+    this.noRules.unsubscribe();
+  }
+
+  updateValidationRules(disableValidators: boolean) {
     this.editForm.clearValidators();
-    if (state) {
-      this.editForm.setValidators([Validators.required, blackListedWordValidator]);
-    } else {
+    if (disableValidators) {
       this.editForm.setValidators([Validators.required]);
+    } else {
+      this.editForm.setValidators([Validators.required, blackListedWordValidator]);
     }
   }
+
   save() {
     // grab the form, ,check if valid
     if (this.editForm.valid) {
@@ -103,6 +84,5 @@ export class CardItemEditReactiveComponent implements OnInit, AfterViewInit, OnD
   cancel() {
     this.router.navigate(['/Cards']);
   }
-
 
 }
