@@ -8,9 +8,10 @@ DOM Manipulation, ElmentRef, ViewChild, View Encapsulation
 HttpClient
 Reactive Form
 Form Validation
-Change Tracking, Change Detection,
 Routing / Parameters / Guards
 Module, Lazy Loading
+
+Change Tracking, Change Detection,
 Transclusion (for when passing @Input isn’t enough (like wanting to pass HTML))
 Simple Dialog Service
 Custom Decorators
