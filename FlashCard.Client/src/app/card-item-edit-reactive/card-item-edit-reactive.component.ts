@@ -1,4 +1,4 @@
-import { Component, OnInit, createPlatformFactory, OnDestroy } from '@angular/core';
+import { Component, OnInit, createPlatformFactory, OnDestroy, AfterViewInit } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { TopicService } from '../services/topic.service';
 import { Topic } from '../models/topic.model';
@@ -13,22 +13,7 @@ import { Observable, Subscription } from 'rxjs';
   templateUrl: './card-item-edit-reactive.component.html',
   styleUrls: ['./card-item-edit-reactive.component.css']
 })
-export class CardItemEditReactiveComponent implements OnInit, OnDestroy {
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
-  }
-
-  topics: Topic[];
-  card: Card;
-  subscription: Subscription;
-
-  editForm = this.formBuilder.group({
-    id: [null],
-    question: ['', [Validators.required, blackListedWordValidator]],
-    answer: [''],
-    isFavorite: [null],
-    topic: [null, Validators.required]
-  });
+export class CardItemEditReactiveComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(
     private topicService: TopicService,
@@ -38,11 +23,26 @@ export class CardItemEditReactiveComponent implements OnInit, OnDestroy {
     private formBuilder: FormBuilder
   ) { }
 
+  topics: Topic[];
+  card: Card;
+  subscription: Subscription;
+
+  editForm = this.formBuilder.group({
+    norules: [false],
+    id: [null],
+    question: ['', [Validators.required, blackListedWordValidator]],
+    answer: [''],
+    isFavorite: [null],
+    topic: [null, Validators.required]
+  });
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+
   /*
 
-  1) add checkbox that says (ignore blacklisted word)
-  --> listen to stream of changes coming from the checkbox
-  ---> accrodingly redefine the list of validators
+
 
  2)  drop down of introduce list of card types, should not make it now a
 
@@ -65,14 +65,16 @@ export class CardItemEditReactiveComponent implements OnInit, OnDestroy {
         err => { },
         () => { });
 
-    this.editForm.get('topic').valueChanges.subscribe(
-      (res) => {
-
-        console.log('topic', this.editForm.get('topic'));
-        console.log('topic', res);
-      });
 
 
+
+
+  }
+  // TODO: since form will be destroyed with control, no need to explicitly unsubscribe, right ?
+  // TODO: strange, not able to get hold of this field, (Error: Must supply a value for form control with name: 'norules').
+
+  ngAfterViewInit() {
+    this.editForm.get('norules').valueChanges.subscribe(value => console.log(value));
   }
 
   save() {

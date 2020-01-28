@@ -1,6 +1,12 @@
 <h3>Reactive Edit Form</h3>
 <form [formGroup]='editForm'>
 
+    <div class="form-check">
+        <!-- although this won't be persisted, mapping still needed since we need to listen to change events in the .ts module right ?  -->
+        <input type="checkbox" class="form-check-input" id="norules" formControlName="norules">
+        <label class="form-check-label" for="norules">disable blocked word rules</label>
+    </div>
+
     <div class="form-group">
         <Label for="question">Question</Label>
         <input class="form-control" formControlName="question">
@@ -19,6 +25,7 @@
       <option *ngFor="let topic of topics" [ngValue]="topic">{{topic.name}}</option>
     </select>
     </div>
+
 
     <!-- TODO: is this the right way disable / enable buttons in reactive form -->
     <button [disabled]="!editForm.valid" class="btn btn-success" (click)="save()">Save</button>
