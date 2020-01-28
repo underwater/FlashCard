@@ -61,7 +61,7 @@ export class CardItemEditReactiveComponent implements OnInit, AfterViewInit, OnD
 
     this.subscription = this.cardService.getCard(parseInt(id))
       .subscribe(
-        card => { this.editForm.setValue(card); },
+        card => { this.editForm.patchValue(card); },
         err => { },
         () => { });
 
@@ -74,9 +74,17 @@ export class CardItemEditReactiveComponent implements OnInit, AfterViewInit, OnD
   // TODO: strange, not able to get hold of this field, (Error: Must supply a value for form control with name: 'norules').
 
   ngAfterViewInit() {
-    this.editForm.get('norules').valueChanges.subscribe(value => console.log(value));
+    this.editForm.get('norules').valueChanges.subscribe(value => this.updateValidationRules(value));
   }
 
+  updateValidationRules(turnOn: boolean) {
+    this.editForm.clearValidators();
+    if (turnOn) {
+      this.editForm.setValidators([Validators.required, blackListedWordValidator]);
+    } else {
+      this.editForm.setValidators([Validators.required]);
+    }
+  }
   save() {
     // grab the form, ,check if valid
     if (this.editForm.valid) {
