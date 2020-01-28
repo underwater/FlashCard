@@ -74,12 +74,12 @@ export class CardItemEditReactiveComponent implements OnInit, AfterViewInit, OnD
   // TODO: strange, not able to get hold of this field, (Error: Must supply a value for form control with name: 'norules').
 
   ngAfterViewInit() {
-    this.editForm.get('norules').valueChanges.subscribe(value => this.updateValidationRules(value));
+    this.editForm.get('norules').valueChanges.subscribe(state => this.updateValidationRules(state));
   }
 
-  updateValidationRules(turnOn: boolean) {
+  updateValidationRules(state: boolean) {
     this.editForm.clearValidators();
-    if (turnOn) {
+    if (state) {
       this.editForm.setValidators([Validators.required, blackListedWordValidator]);
     } else {
       this.editForm.setValidators([Validators.required]);
