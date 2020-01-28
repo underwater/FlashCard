@@ -37,6 +37,7 @@ namespace FlashCard.Api
             services.AddControllers();
             services.AddSwaggerGen(opt => 
                 opt.SwaggerDoc("v1", new OpenApiInfo { Title = "Flash Card API", Version = "v1" }));
+            services.AddApplicationInsightsTelemetry();
 
         }
 
