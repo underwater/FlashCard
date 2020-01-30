@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Type } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,7 +9,7 @@ import { CardListComponent } from './card-list/card-list.component';
 import { TopicListComponent } from './topic-list/topic-list.component';
 import { TopicService } from './services/topic.service';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CardItemComponent } from './card-item/card-item.component';
 import { TopicItemComponent } from './topic-item/topic-item.component';
 import { TopicItemAddComponent } from './topic-item-add/topic-item-add.component';
@@ -21,8 +21,8 @@ import { DeletePromptComponent } from './dialogs/delete-prompt/delete-prompt.com
 import { DialogsRootComponent } from './dialogs/dialogs-root/dialogs-root.component';
 import { ErrorHandlingComponent } from './error-handling/error-handling.component';
 import { SignInComponent } from './sign-in/sign-in.component';
-
-
+import { AuthService } from './services/auth.service';
+import { AuthInterceptor } from './interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -48,7 +48,16 @@ import { SignInComponent } from './sign-in/sign-in.component';
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [TopicService, DialogsService],
+  providers: [
+    TopicService,
+    DialogsService,
+    AuthService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

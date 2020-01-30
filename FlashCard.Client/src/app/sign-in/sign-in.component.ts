@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -25,13 +26,21 @@ export class SignInComponent implements OnInit {
   });
 
 
-  constructor(private _router: Router) { }
+  constructor(private _router: Router, private _authService: AuthService) { }
 
   ngOnInit() {
   }
 
   async submit() {
-    console.log('logging in....');
+    this.hasError = false;
+    if (this.form.valid) {
+      try {
+        await this._authService.signIn(this.form.value);
+      }
+      catch(err) {
+        this.hasError = true;
+      }
+    }
 
   }
 }

@@ -31,9 +31,11 @@ namespace FlashCard.Api.Controllers
             return Ok(user);
         }
 
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult GetAll()
         {
+            var headers = Request.Headers;
             var users = _userService.GetAll();
             return Ok(users);
         }
