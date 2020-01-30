@@ -19,11 +19,8 @@ export class CardListComponent implements OnInit {
     this.cardService.getCards().subscribe(result => this.cards = result);
   }
 
-  // TODO: what if we don't want to do anything after navigation?
   onEdit(card: Card) {
-    this.router.navigate(['/card/edit/', card.id]).then(nav =>
-      console.log('navigating template edit form', card)
-    );
+    this.router.navigate(['/card/edit/', card.id]);
   }
 
   onEditReactive(card: Card) {

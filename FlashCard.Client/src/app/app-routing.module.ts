@@ -5,6 +5,7 @@ import { TopicListComponent } from './topic-list/topic-list.component';
 import { CardItemEditComponent } from './card-item-edit/card-item-edit.component';
 import { CardItemEditReactiveComponent } from './card-item-edit-reactive/card-item-edit-reactive.component';
 import { ErrorHandlingComponent } from './error-handling/error-handling.component';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 
 const routes: Routes = [
@@ -13,7 +14,9 @@ const routes: Routes = [
   { path: 'card/editreactive/:id', component: CardItemEditReactiveComponent },
   { path: 'card/edit/:id', component: CardItemEditComponent },
   { path: 'ErrorHandling', component: ErrorHandlingComponent },
-  // { path: '**', component: NotFoundComponent }
+  { path: 'signin', component: SignInComponent },
+  // otherwise redirect to home
+  { path: '**', redirectTo: '' }
 
 ];
 

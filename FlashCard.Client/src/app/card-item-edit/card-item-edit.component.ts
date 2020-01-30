@@ -27,7 +27,6 @@ export class CardItemEditComponent implements OnInit {
 
     const id = this.activatedRoute.snapshot.paramMap.get('id');
 
-    // TODO: Should we just pass the entire card as parameter or instead just the id and inject service to retrive again the object ?
     this.cardService.getCard(Number(id)).subscribe(
       result => this.card = result
     );

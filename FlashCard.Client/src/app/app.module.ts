@@ -20,6 +20,7 @@ import { DialogsService } from './services/dialogs.service';
 import { DeletePromptComponent } from './dialogs/delete-prompt/delete-prompt.component';
 import { DialogsRootComponent } from './dialogs/dialogs-root/dialogs-root.component';
 import { ErrorHandlingComponent } from './error-handling/error-handling.component';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 
 
@@ -37,7 +38,8 @@ import { ErrorHandlingComponent } from './error-handling/error-handling.componen
     ConfirmDialogComponent,
     DeletePromptComponent,
     DialogsRootComponent,
-    ErrorHandlingComponent
+    ErrorHandlingComponent,
+    SignInComponent
   ],
   imports: [
     BrowserModule,

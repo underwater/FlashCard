@@ -37,6 +37,9 @@ export class CardItemEditReactiveComponent implements OnInit, OnDestroy {
     topic: [null, Validators.required]
   });
 
+  get questionControl(): FormControl {
+    return this.editForm.get('question') as FormControl;
+  }
 
   ngOnInit() {
     this.topicService.getTopics().subscribe(values => this.topics = values);
@@ -48,21 +51,23 @@ export class CardItemEditReactiveComponent implements OnInit, OnDestroy {
         err => { },
         () => { });
 
-    this.noRules = this.editForm.get('norules').valueChanges.subscribe(state => this.updateValidationRules(state));
+    this.noRules = this.editForm.get('norules').valueChanges
+      .subscribe(state => this.updateValidationRules(state));
   }
 
   ngOnDestroy(): void {
     this.initialLoad.unsubscribe();
-    // TODO: since form will be destroyed with control, no need to explicitly unsubscribe, right ?
     this.noRules.unsubscribe();
   }
-  // TODO: Dynamically changing validators doesn't seem to be working
+
   updateValidationRules(disableValidators: boolean) {
-    this.editForm.clearValidators();
+    this.questionControl.clearValidators();
     if (disableValidators) {
-      this.editForm.setValidators([Validators.required]);
+      this.questionControl.setValidators([Validators.required]);
+      this.editForm.markAllAsTouched();
     } else {
-      this.editForm.setValidators([Validators.required, blackListedWordValidator]);
+      this.questionControl.setValidators([Validators.required, blackListedWordValidator]);
+      this.editForm.markAllAsTouched();
     }
   }
 
