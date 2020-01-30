@@ -23,6 +23,7 @@ import { ErrorHandlingComponent } from './error-handling/error-handling.componen
 import { SignInComponent } from './sign-in/sign-in.component';
 import { AuthService } from './services/auth.service';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { SERVER_ROOT } from './SERVER_ROOT';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,10 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     TopicService,
     DialogsService,
     AuthService,
+    {
+      provide: SERVER_ROOT,
+      useValue: "https://localhost:5001"
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
