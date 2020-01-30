@@ -56,7 +56,7 @@ export class CardItemEditReactiveComponent implements OnInit, OnDestroy {
     // TODO: since form will be destroyed with control, no need to explicitly unsubscribe, right ?
     this.noRules.unsubscribe();
   }
-
+  // TODO: Dynamically changing validators doesn't seem to be working
   updateValidationRules(disableValidators: boolean) {
     this.editForm.clearValidators();
     if (disableValidators) {
