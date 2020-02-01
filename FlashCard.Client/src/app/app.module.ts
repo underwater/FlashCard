@@ -24,6 +24,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
 import { AuthService } from './services/auth.service';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { SERVER_ROOT } from './SERVER_ROOT';
+import { AuthGuard } from './guards/auth.guard';
+import { SigninGuard } from './guards/signin.guard';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,8 @@ import { SERVER_ROOT } from './SERVER_ROOT';
     TopicService,
     DialogsService,
     AuthService,
+    AuthGuard,
+    SigninGuard,
     {
       provide: SERVER_ROOT,
       useValue: "https://localhost:5001"

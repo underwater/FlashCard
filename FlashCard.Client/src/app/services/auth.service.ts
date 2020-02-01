@@ -11,16 +11,22 @@ export class AuthService {
         this._serverRoot = this._injector.get(SERVER_ROOT);
     }
 
-    private _token: string;
-
     public get token(): string {
-        return this._token;
+        return localStorage.getItem("token");
+    }
+
+    public get isLoggedIn(): boolean {
+        return this.token && this.token.length > 0;
     }
 
     async signIn(user: Partial<User>): Promise<User> {
         let response = await this._http.post<User>(`${this._serverRoot}/api/users/authenticate`, user).toPromise();
-        this._token = response.token;
+        localStorage.setItem("token", response.token);
         return response;
+    }
+
+    signOut() {
+        localStorage.removeItem("token");
     }
     
 }

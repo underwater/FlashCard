@@ -14,10 +14,12 @@
             <li class="navbar-item">
                 <a routerLink="/Topics" class="nav-link">Topics</a>
             </li>
-            <li class="navbar-item">
+            <li class="navbar-item" *ngIf="!authService.isLoggedIn">
                 <a routerLink="/signin" class="nav-link">Sign In</a>
             </li>
-
+            <li class="navbar-item" *ngIf="authService.isLoggedIn">
+                <button class="nav-link" (click)="authService.signOut()">Sign Out</button>
+            </li>
         </ul>
 
     </div>

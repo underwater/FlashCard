@@ -6,15 +6,17 @@ import { CardItemEditComponent } from './card-item-edit/card-item-edit.component
 import { CardItemEditReactiveComponent } from './card-item-edit-reactive/card-item-edit-reactive.component';
 import { ErrorHandlingComponent } from './error-handling/error-handling.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { AuthGuard } from './guards/auth.guard';
+import { SigninGuard } from './guards/signin.guard';
 
 
 const routes: Routes = [
   { path: 'Cards', component: CardListComponent },
-  { path: 'Topics', component: TopicListComponent },
+  { path: 'Topics', component: TopicListComponent, canActivate: [AuthGuard] },
   { path: 'card/editreactive/:id', component: CardItemEditReactiveComponent },
   { path: 'card/edit/:id', component: CardItemEditComponent },
   { path: 'ErrorHandling', component: ErrorHandlingComponent },
-  { path: 'signin', component: SignInComponent },
+  { path: 'signin', component: SignInComponent, canActivate: [SigninGuard] },
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 
