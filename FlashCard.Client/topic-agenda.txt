@@ -3,11 +3,13 @@ TypeScript (Patterns), Partial (Takes Class / Interface)
 DI, Providers
 Error Handling (both front end / backend)
 Observables, RX JS,
-Directives / PIPES / Component Life Cycle Hooks (NgOnInit)
-DOM Manipulation, ElmentRef, ViewChild, View Encapsulation
+Directives / Component Life Cycle Hooks (NgOnInit)
+DOM Manipulation, ElmentRef, ViewChild
 HttpClient
 Reactive Form. HTTP Interceptors
 Form Validation
+View Encapsulation
+PIPES
 Routing / Parameters / Guards
 Module, Lazy Loading
 Observables
