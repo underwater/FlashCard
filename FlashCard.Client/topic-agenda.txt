@@ -8,10 +8,10 @@ DOM Manipulation, ElmentRef, ViewChild
 HttpClient
 Reactive Form / HTTP Interceptors
 Form Validation
-
-View Encapsulation
+View Encapsulation (stick to emulated for downlevel browsers)
 PIPES
-Routing / Parameters / Guards
+
+--> Routing / Parameters / Guards
 
 Module, Lazy Loading
 Observables
@@ -23,3 +23,5 @@ Custom Decorators
 Dynamic Dialog Service
 CLI, Webpack, etc.
 Testing: Jasmine, Protractor, Nighmare.js etc.
+
+web component / polymer

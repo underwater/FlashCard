@@ -1,6 +1,4 @@
 <p>
-    <label>{{topic.name}}</label>
-    <button class="btn btn-sm btn-outline-danger float-right" 
-
-     (click)="OnDeleteTopic(topic)">X</button>
+    <label>{{topic.name | empty}}</label>
+    <button class="btn btn-sm btn-outline-danger float-right" (click)="OnDeleteTopic(topic)">X</button>
 </p>

@@ -26,6 +26,8 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { SERVER_ROOT } from './SERVER_ROOT';
 import { AuthGuard } from './guards/auth.guard';
 import { SigninGuard } from './guards/signin.guard';
+import { EmptyPipe } from './pipes/empty.pipe';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +44,8 @@ import { SigninGuard } from './guards/signin.guard';
     DeletePromptComponent,
     DialogsRootComponent,
     ErrorHandlingComponent,
-    SignInComponent
+    SignInComponent,
+    EmptyPipe
   ],
   imports: [
     BrowserModule,
