@@ -33,10 +33,10 @@ export class CardItemEditComponent implements OnInit {
   }
 
   save() {
-    this.cardService.saveCard(this.card).subscribe(res => this.router.navigate(['/Cards']));
+    this.cardService.saveCard(this.card).subscribe(res => this.router.navigate(['/cards']));
 
   }
   cancel() {
-    this.router.navigate(['/Cards']);
+    this.router.navigate(['/cards']);
   }
 }

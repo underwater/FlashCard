@@ -20,11 +20,11 @@ export class CardListComponent implements OnInit {
   }
 
   onEdit(card: Card) {
-    this.router.navigate(['/card/edit/', card.id]);
+    this.router.navigate(['/cards/edit/', card.id]);
   }
 
   onEditReactive(card: Card) {
-    this.router.navigate(['/card/editreactive/', card.id]).then(
+    this.router.navigate(['/cards/editreactive/', card.id]).then(
       // do something else?
     );
 

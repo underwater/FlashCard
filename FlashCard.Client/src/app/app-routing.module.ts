@@ -9,14 +9,32 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { AuthGuard } from './guards/auth.guard';
 import { SigninGuard } from './guards/signin.guard';
 
-
 const routes: Routes = [
-  { path: 'Cards', component: CardListComponent, canActivate: [AuthGuard] },
   { path: 'Topics', component: TopicListComponent, canActivate: [AuthGuard] },
-  { path: 'card/editreactive/:id', component: CardItemEditReactiveComponent, canActivate: [AuthGuard] },
-  { path: 'card/edit/:id', component: CardItemEditComponent, canActivate: [AuthGuard] },
+  {
+    path: "cards",
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: "editreactive/:id", 
+        component: CardItemEditReactiveComponent
+      },
+      {
+        path: "edit/:id",
+        component: CardItemEditComponent
+      },
+      {
+        path: "",
+        component: CardListComponent
+      }
+    ]
+  },
   { path: 'ErrorHandling', component: ErrorHandlingComponent },
-  { path: 'signin', component: SignInComponent, canActivate: [SigninGuard] },
+  { 
+    path: 'signin',
+    component: SignInComponent, 
+    canActivate: [SigninGuard]
+  },
   // otherwise redirect to home
   { path: '**', redirectTo: '' }
 
