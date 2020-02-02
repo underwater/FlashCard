@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Type } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -47,8 +46,6 @@ import { SigninGuard } from './guards/signin.guard';
   ],
   imports: [
     BrowserModule,
-    // TODO: Not sure if this is needed for font awesome
-    AngularFontAwesomeModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
