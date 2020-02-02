@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Topic } from '../models/topic.model';
+import { Topic } from '../../models/topic.model';
 
 @Component({
   selector: 'app-topic-item-add',

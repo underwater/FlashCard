@@ -1,11 +1,11 @@
 import { Component, OnInit, createPlatformFactory, OnDestroy, } from '@angular/core';
 import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
-import { TopicService } from '../services/topic.service';
-import { Topic } from '../models/topic.model';
-import { Card } from '../models/card.model';
-import { CardsService } from '../services/cards.service';
+import { TopicService } from '../../services/topic.service';
+import { Topic } from '../../models/topic.model';
+import { Card } from '../../models/card.model';
+import { CardsService } from '../../services/cards.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { blackListedWordValidator } from '../validators/blacklisted-word-validator';
+import { blackListedWordValidator } from '../../validators/blacklisted-word-validator';
 import { Observable, Subscription } from 'rxjs';
 
 @Component({

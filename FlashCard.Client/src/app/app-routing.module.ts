@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CardListComponent } from './card-list/card-list.component';
-import { TopicListComponent } from './topic-list/topic-list.component';
-import { CardItemEditComponent } from './card-item-edit/card-item-edit.component';
-import { CardItemEditReactiveComponent } from './card-item-edit-reactive/card-item-edit-reactive.component';
+import { CardListComponent } from './components/card-list/card-list.component';
+import { TopicListComponent } from './components/topic-list/topic-list.component';
+import { CardItemEditComponent } from './components/card-item-edit/card-item-edit.component';
+import { CardItemEditReactiveComponent } from './components/card-item-edit-reactive/card-item-edit-reactive.component';
 import { ErrorHandlingComponent } from './error-handling/error-handling.component';
-import { SignInComponent } from './sign-in/sign-in.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
 import { AuthGuard } from './guards/auth.guard';
 import { SigninGuard } from './guards/signin.guard';
 
 
 const routes: Routes = [
-  { path: 'Cards', component: CardListComponent },
+  { path: 'Cards', component: CardListComponent, canActivate: [AuthGuard] },
   { path: 'Topics', component: TopicListComponent, canActivate: [AuthGuard] },
-  { path: 'card/editreactive/:id', component: CardItemEditReactiveComponent },
-  { path: 'card/edit/:id', component: CardItemEditComponent },
+  { path: 'card/editreactive/:id', component: CardItemEditReactiveComponent, canActivate: [AuthGuard] },
+  { path: 'card/edit/:id', component: CardItemEditComponent, canActivate: [AuthGuard] },
   { path: 'ErrorHandling', component: ErrorHandlingComponent },
   { path: 'signin', component: SignInComponent, canActivate: [SigninGuard] },
   // otherwise redirect to home

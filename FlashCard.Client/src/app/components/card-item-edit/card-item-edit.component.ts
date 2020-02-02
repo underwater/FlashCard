@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { Card } from '../models/card.model';
-import { CardsService } from '../services/cards.service';
+import { Card } from '../../models/card.model';
+import { CardsService } from '../../services/cards.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { headersToString } from 'selenium-webdriver/http';
-import { TopicService } from '../services/topic.service';
-import { Topic } from '../models/topic.model';
+import { TopicService } from '../../services/topic.service';
+import { Topic } from '../../models/topic.model';
 
 
 @Component({

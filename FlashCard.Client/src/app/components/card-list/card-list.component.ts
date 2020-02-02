@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CardsService } from '../services/cards.service';
-import { Card } from '../models/card.model';
+import { CardsService } from '../../services/cards.service';
+import { Card } from '../../models/card.model';
 import { Router } from '@angular/router';
 
 

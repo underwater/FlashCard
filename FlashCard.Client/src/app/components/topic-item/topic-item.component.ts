@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, Injector } from '@angular/core';
-import { Topic } from '../models/topic.model';
-import { DialogsService } from '../services/dialogs.service';
-import { DialogsRootComponent } from '../dialogs/dialogs-root/dialogs-root.component';
+import { Topic } from '../../models/topic.model';
+import { DialogsService } from '../../services/dialogs.service';
+import { DialogsRootComponent } from '../../dialogs/dialogs-root/dialogs-root.component';
 
 
 @Component({
@@ -26,7 +26,7 @@ export class TopicItemComponent implements OnInit {
     this._dialogsService.open("delete-prompt", {
       message: "Are you sure you want to delete this topic?"
     }).then(res => {
-      if(res) {
+      if (res) {
         //yes
       }
       else {

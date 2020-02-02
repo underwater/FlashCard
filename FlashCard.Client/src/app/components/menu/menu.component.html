@@ -18,7 +18,7 @@
                 <a routerLink="/signin" class="nav-link">Sign In</a>
             </li>
             <li class="navbar-item" *ngIf="authService.isLoggedIn">
-                <button class="nav-link" (click)="authService.signOut()">Sign Out</button>
+                <a class="nav-link" (click)="authService.signOut()">Sign Out</a>
             </li>
         </ul>
 

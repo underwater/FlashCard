@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../services/auth.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-sign-in',
@@ -38,7 +38,7 @@ export class SignInComponent implements OnInit {
         await this._authService.signIn(this.form.value);
         this._router.navigate(["Topics"]);
       }
-      catch(err) {
+      catch (err) {
         this.hasError = true;
       }
     }
