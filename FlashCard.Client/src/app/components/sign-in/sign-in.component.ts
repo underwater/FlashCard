@@ -32,6 +32,7 @@ export class SignInComponent implements OnInit {
   }
 
   async submit() {
+    debugger;
     this.hasError = false;
     if (this.form.valid) {
       try {

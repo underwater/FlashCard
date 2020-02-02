@@ -6,11 +6,13 @@ Observables, RX JS,
 Directives / Component Life Cycle Hooks (NgOnInit)
 DOM Manipulation, ElmentRef, ViewChild
 HttpClient
-Reactive Form. HTTP Interceptors
+Reactive Form / HTTP Interceptors
 Form Validation
+
 View Encapsulation
 PIPES
 Routing / Parameters / Guards
+
 Module, Lazy Loading
 Observables
 <- MOCK INTERVIEW -->
