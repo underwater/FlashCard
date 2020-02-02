@@ -36,9 +36,8 @@ export class SignInComponent implements OnInit {
     if (this.form.valid) {
       try {
         await this._authService.signIn(this.form.value);
-        this._router.navigate(["Topics"]);
-      }
-      catch (err) {
+        this._router.navigate(['Topics']);
+      } catch (err) {
         this.hasError = true;
       }
     }
