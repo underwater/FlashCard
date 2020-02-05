@@ -1,16 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-error-handling',
   templateUrl: './error-handling.component.html',
   styleUrls: ['./error-handling.component.css']
 })
-export class ErrorHandlingComponent implements OnInit {
+export class ErrorHandlingComponent implements OnInit, OnDestroy {
+  
+  ngOnDestroy(): void {
+    for(let sub of this._subscriptions) {
+      sub.unsubscribe();
+    }
+    this._subscriptions = [];
+  }
+
   private baseUrl = environment.serverRoute;
   private readonly url = `${this.baseUrl}/api/ErrorHandling`;
+
+  alert$: Observable<string>;
+
+  private _subscriptions: Subscription[] = [];
 
   constructor(private http: HttpClient) { }
   /*
@@ -22,6 +35,35 @@ export class ErrorHandlingComponent implements OnInit {
 
   */
   ngOnInit() {
+    this.alert$ = Observable.create(handler => {
+      let i = 1;
+      let t = setInterval(() => {
+        handler.next(`foo ${i}`);
+        i++;
+      }, 2000);
+      setTimeout(() => {
+        clearInterval(t);
+        handler.complete();
+      }, 10000);
+    });
+
+    //Listener 1
+    this._subscriptions.push(this.alert$.subscribe({
+      next: value => console.log(`Listener 1: ${value}`),
+      complete: () => console.log("Listener 1 reports that the stream is closed"),
+      error: () => console.error("Listener 1 errored")
+    }));
+
+    setTimeout(() => {
+      //Listener 2
+      this._subscriptions.push(this.alert$.subscribe(value => {
+        console.log(`Listener 2: ${value}`);
+      }, err => {
+        console.log("Listener 2 errored");
+      }, () => {
+        console.log("Listener completed");
+      }));
+    }, 4000);
 
   }
 

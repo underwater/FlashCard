@@ -10,11 +10,9 @@ Reactive Form / HTTP Interceptors
 Form Validation
 View Encapsulation (stick to emulated for downlevel browsers)
 PIPES
-
---> Routing / Parameters / Guards
-
-Module, Lazy Loading
+Routing / Parameters / Guards
 Observables
+--> Module, Lazy Loading
 <- MOCK INTERVIEW -->
 Change Tracking, Change Detection,
 Transclusion (for when passing @Input isn’t enough (like wanting to pass HTML))
