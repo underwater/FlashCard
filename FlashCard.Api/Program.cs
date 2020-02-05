@@ -11,7 +11,6 @@ namespace FlashCard.Api
     public class Program
     {
         // TODO: not sure if the right way to setup logging with serilog ?
-        // https://nblumhardt.com/2019/10/serilog-in-aspnetcore-3/
         public static IConfiguration Configuration { get; } = new ConfigurationBuilder()
            .SetBasePath(Directory.GetCurrentDirectory())
            .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
