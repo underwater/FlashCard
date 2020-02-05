@@ -27,6 +27,7 @@ import { SERVER_ROOT } from './SERVER_ROOT';
 import { AuthGuard } from './guards/auth.guard';
 import { SigninGuard } from './guards/signin.guard';
 import { EmptyPipe } from './pipes/empty.pipe';
+import { LoadingComponent } from './components/loading/loading.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { EmptyPipe } from './pipes/empty.pipe';
     DialogsRootComponent,
     ErrorHandlingComponent,
     SignInComponent,
-    EmptyPipe
+    EmptyPipe,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,

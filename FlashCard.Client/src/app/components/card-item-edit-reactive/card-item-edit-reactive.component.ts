@@ -4,16 +4,21 @@ import { TopicService } from '../../services/topic.service';
 import { Topic } from '../../models/topic.model';
 import { Card } from '../../models/card.model';
 import { CardsService } from '../../services/cards.service';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
 import { blackListedWordValidator } from '../../validators/blacklisted-word-validator';
 import { Observable, Subscription } from 'rxjs';
+
+export interface ILoading {
+  loading: boolean;
+}
 
 @Component({
   selector: 'app-card-item-edit-reactive',
   templateUrl: './card-item-edit-reactive.component.html',
   styleUrls: ['./card-item-edit-reactive.component.css']
 })
-export class CardItemEditReactiveComponent implements OnInit, OnDestroy {
+export class CardItemEditReactiveComponent implements OnInit, OnDestroy, ILoading {
+  loading: boolean;
 
   constructor(
     private topicService: TopicService,
@@ -42,12 +47,12 @@ export class CardItemEditReactiveComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.loading = true;
     this.topicService.getTopics().subscribe(values => this.topics = values);
     const id = this.activatedRoute.snapshot.paramMap.get('id');
-
     this.initialLoad = this.cardService.getCard(+id)
       .subscribe(
-        card => { this.editForm.patchValue(card); },
+        card => { this.editForm.patchValue(card); setTimeout(() => this.loading = false, 3000)  },
         err => { },
         () => { });
 
@@ -87,7 +92,7 @@ export class CardItemEditReactiveComponent implements OnInit, OnDestroy {
 
   // TODO: getting Form submission canceled because the form is not connected
   cancel() {
-    this.router.navigate(['/Cards']);
+    this.router.navigate(['/cards']);
   }
 
 }

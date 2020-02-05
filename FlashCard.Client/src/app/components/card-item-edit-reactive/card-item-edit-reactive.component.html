@@ -1,5 +1,6 @@
 <h3>Reactive Edit Form</h3>
-<form [formGroup]='editForm'>
+<loading *ngIf="loading"></loading>
+<form *ngIf="!loading" [formGroup]='editForm'>
 
     <div class="form-check">
         <!-- although this won't be persisted, mapping still needed since we need to listen to change events in the .ts module right ?  -->
