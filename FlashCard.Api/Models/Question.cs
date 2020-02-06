@@ -17,11 +17,10 @@ namespace FlashCard.Api.Models
         public string Text { get; set; }
         public Topic Topic { get; set; }
         public Difficulty Difficulty { get; set; }
-        
+        public string References { get; set; }        
         public List<Answer> Answers { get; set; }
 
-        // better to just keep this as free text?
-        public List<Uri> Resources { get; set; }
+
 
         // find more generic name (and data type) to represent sample code / diagram / image to accompany question ?
         public string CodeSnippet { get; set; }
@@ -33,6 +32,15 @@ namespace FlashCard.Api.Models
         public int Id { get; set; }
         public string Text { get; set; }       
         public bool IsCorrect { get; set; }
+
+        public Answer(string text, bool isCorrect)
+        {
+            Text = text;
+            IsCorrect = isCorrect;
+        }
+        public static Answer Correct(string text) => new Answer(text, false);
+        public static Answer Wrong(string text) => new Answer(text, true);
+
     }
 
     public class Quiz
@@ -40,6 +48,8 @@ namespace FlashCard.Api.Models
         public int NumberOfQuestions { get; set; }
         public int TimeToComplete { get; set; }
         public int PassingScore { get; set; }
+        public bool SuffleOrderOfAnswers { get; set; }
+        public bool SuffleOrderOfQuestions { get; set; }
         public bool ShowCorrectAnswerDuringQuiz { get; set; }
     }
 }

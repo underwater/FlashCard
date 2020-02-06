@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace FlashCard.Api.Models
@@ -8,11 +9,11 @@ namespace FlashCard.Api.Models
         public static void SeedDb(DataContext context)
         {
             context.Database.Migrate();
+            var angular = new Topic() { Name = "Angular" };
+            var asp = new Topic() { Name = "Asp.Net Core" };
+
             if (context.Cards.Count() == 0)
             {
-                var angular = new Topic() { Name = "Angular" };
-                var asp = new Topic() { Name = "Asp.Net Core" };
-
                 context.AddRange(
                     new Card
                     {
@@ -38,6 +39,44 @@ namespace FlashCard.Api.Models
 
                 context.SaveChanges();
             }
+
+            if (context.Questions.Count() == 0)
+            {
+                context.AddRange(
+                    new Question
+                    {
+                        Text = "What does AOT stand for?",
+                        Answers = new List<Answer>() {
+
+                            Answer.Correct("ahead-of-time compilation"),
+                            Answer.Wrong("Angular Object Templates"),
+                            Answer.Wrong("All of the above"),
+                            Answer.Wrong("None of the above")
+                        },
+
+                        Topic = angular,
+                        Difficulty = Difficulty.Easy,
+                        References = "https://angular.io/guide/aot-compiler"
+                    },
+
+                  new Question
+                  {
+                      Text = "Which directive would you use to conditionally include a template depending on the runtime value of an expression?",
+                      Answers = new List<Answer>() {
+
+                            Answer.Correct("ngIf"),
+                            Answer.Wrong("ngWhen"),
+                            Answer.Wrong("ngWhile"),
+                            Answer.Wrong("ngFor")
+                        },
+
+                      Topic = angular,
+                      Difficulty = Difficulty.Easy,
+                      References = "https://angular.io/guide/aot-compiler"
+                  });
+            }
+            context.SaveChanges();
+
         }
     }
 }
