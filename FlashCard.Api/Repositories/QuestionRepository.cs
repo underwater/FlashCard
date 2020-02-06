@@ -16,7 +16,7 @@ namespace FlashCard.Api.Repositories
         public List<Question> GetAll()
         {
             return context.Questions
-                .Include(x => x.Answers)
+                .Include(x => x.AnswerOptions)
                 .ToList();
                 
         }
@@ -25,7 +25,7 @@ namespace FlashCard.Api.Repositories
         {
             return context.Questions
                 .Where(q => q.Topic.Id == topicId)
-                .Include(x => x.Answers)
+                .Include(x => x.AnswerOptions)
                 .ToList();
         }
 

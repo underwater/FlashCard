@@ -1,0 +1,43 @@
+﻿Learning Angular / Asp.net Core etc
+	 
+	Study Mode: 
+		o Flashcard 
+		o Favorite
+		o Remember right wrong
+ 
+	Quiz Mode: 
+		o Generate Quiz Questions
+		o View Quick progress
+		o Show Correct Answer
+		o Show Code Snippet
+		o Style / Theme Question Card
+		
+	Responsive App 
+		o Version for Tablet / Phone ?
+		
+	My Progress 
+		o Areas of Interest
+		o Dashboard with Work done
+		
+	Admin / Analytics 
+		o Application Insights / map of the clients
+		o Popularity of Questions
+		o Which country has most angular expertise etc.?    
+	
+	Authors / Contributions 
+		o Must be validated?
+		o Questions / Answers 
+		o Code Snippets (Stack blitz)
+	
+	Feedback / Comments
+		o Feedback
+		o Ratings
+		o Report Incorrect 
+	
+	Open Source
+		Backlog 
+		CI/CD / DevOps: 
+		Pull Requests
+		Discussion
+		Bugs etc.
+	

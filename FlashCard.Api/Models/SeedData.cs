@@ -46,12 +46,12 @@ namespace FlashCard.Api.Models
                     new Question
                     {
                         Text = "What does AOT stand for?",
-                        Answers = new List<Answer>() {
+                        AnswerOptions = new List<AnswerOption>() {
 
-                            Answer.Correct("ahead-of-time compilation"),
-                            Answer.Wrong("Angular Object Templates"),
-                            Answer.Wrong("All of the above"),
-                            Answer.Wrong("None of the above")
+                            AnswerOption.Correct("ahead-of-time compilation"),
+                            AnswerOption.Wrong("Angular Object Templates"),
+                            AnswerOption.Wrong("All of the above"),
+                            AnswerOption.Wrong("None of the above")
                         },
 
                         Topic = angular,
@@ -62,12 +62,12 @@ namespace FlashCard.Api.Models
                   new Question
                   {
                       Text = "Which directive would you use to conditionally include a template depending on the runtime value of an expression?",
-                      Answers = new List<Answer>() {
+                      AnswerOptions = new List<AnswerOption>() {
 
-                            Answer.Correct("ngIf"),
-                            Answer.Wrong("ngWhen"),
-                            Answer.Wrong("ngWhile"),
-                            Answer.Wrong("ngFor")
+                            AnswerOption.Correct("ngIf"),
+                            AnswerOption.Wrong("ngWhen"),
+                            AnswerOption.Wrong("ngWhile"),
+                            AnswerOption.Wrong("ngFor")
                         },
 
                       Topic = angular,
