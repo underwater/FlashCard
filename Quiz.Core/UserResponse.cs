@@ -1,4 +1,4 @@
-﻿namespace FlashCard.Api.Models
+﻿namespace Quiz.Core
 {
     public class UserResponse
     {

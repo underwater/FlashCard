@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace FlashCard.Api.Models
+namespace Quiz.Core
 {
-    public class QuizDefinition
+    public class Quiz
     {
+        public string Title { get; set; }
         public int NumberOfQuestions { get; set; }
         public int TimeToComplete { get; set; }
         public int PassingScore { get; set; }

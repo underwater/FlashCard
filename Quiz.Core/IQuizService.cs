@@ -1,9 +1,7 @@
 ﻿
-
-using FlashCard.Api.Models;
 using System.Collections.Generic;
 
-namespace FlashCard.Api.Services
+namespace Quiz.Core
 {
     public interface IQuizService
     {

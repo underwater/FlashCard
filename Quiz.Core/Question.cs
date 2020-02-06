@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace FlashCard.Api.Models
+namespace Quiz.Core
 {
     /*
      *    1 - how to store rich text content? should I store the markup (HTML) ? What if we'd like to restyle (.css)
