@@ -25,7 +25,8 @@ namespace FlashCard.Api
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-               .UseSerilog()
+            
+                .UseSerilog() // keep asp.net logs seperate
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
