@@ -18,7 +18,7 @@ namespace FlashCard.Api.Models
         public int PassingScore { get; set; }
 
         // list of question 
-        public List<Question> Questions { get; set; }
+        public List<QuizQuestion> Questions { get; set; }
 
     }
 }

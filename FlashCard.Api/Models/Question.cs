@@ -15,7 +15,7 @@ namespace FlashCard.Api.Models
 
         public int AllowedTimeToAnswer { get; set; }
         public List<Answer> Answers { get; set; }
-
+        
         public Question() { }
         public Question(QuestionDto dto)
         {
