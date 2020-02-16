@@ -14,7 +14,7 @@ namespace FlashCard.Api.Models
         public Difficulty Difficulty { get; set; }
 
         public int AllowedTimeToAnswer { get; set; }
-        public List<Answer> AnswerOptions { get; set; }
+        public List<Answer> Answers { get; set; }
 
         public Question() { }
         public Question(QuestionDto dto)

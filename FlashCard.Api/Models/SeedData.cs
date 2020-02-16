@@ -8,9 +8,56 @@ namespace FlashCard.Api.Models
     {
         public static void SeedDb(DataContext context)
         {
+
             context.Database.Migrate();
+
+            AddCards(context);
+            AddQuestions(context);
+
+        }
+
+        private static void AddQuestions(DataContext context)
+        {
             var angular = new Topic() { Name = "Angular" };
-            var asp = new Topic() { Name = "Asp.Net Core" };
+            if (context.Questions.Count() == 0)
+            {
+                context.AddRange(
+                    new Question
+                    {
+                        Text = "What does AOT stand for?",
+                        Answers = new List<Answer>() {
+
+                            Answer.Correct("ahead-of-time compilation"),
+                            Answer.Wrong("Angular Object Templates"),
+                            Answer.Wrong("All of the above"),
+                            Answer.Wrong("None of the above")
+                        },
+
+                        Topic = angular,
+                        Difficulty = Difficulty.Easy,
+                    },
+
+                  new Question
+                  {
+                      Text = "Which directive would you use to conditionally include a template depending on the runtime value of an expression?",
+                      Answers = new List<Answer>() {
+
+                            Answer.Correct("ngIf"),
+                            Answer.Wrong("ngWhen"),
+                            Answer.Wrong("ngWhile"),
+                            Answer.Wrong("ngFor")
+                        },
+
+                      Topic = angular,
+                      Difficulty = Difficulty.Easy,
+                  });
+            }
+            context.SaveChanges();
+        }
+
+        private static void AddCards(DataContext context)
+        {
+            var angular = new Topic() { Name = "Angular" };
 
             if (context.Cards.Count() == 0)
             {
@@ -40,41 +87,7 @@ namespace FlashCard.Api.Models
                 context.SaveChanges();
             }
 
-            if (context.Questions.Count() == 0)
-            {
-                context.AddRange(
-                    new Question
-                    {
-                        Text = "What does AOT stand for?",
-                        AnswerOptions = new List<Answer>() {
-
-                            Answer.Correct("ahead-of-time compilation"),
-                            Answer.Wrong("Angular Object Templates"),
-                            Answer.Wrong("All of the above"),
-                            Answer.Wrong("None of the above")
-                        },
-
-                        Topic = angular,
-                        Difficulty = Difficulty.Easy,
-                    },
-
-                  new Question
-                  {
-                      Text = "Which directive would you use to conditionally include a template depending on the runtime value of an expression?",
-                      AnswerOptions = new List<Answer>() {
-
-                            Answer.Correct("ngIf"),
-                            Answer.Wrong("ngWhen"),
-                            Answer.Wrong("ngWhile"),
-                            Answer.Wrong("ngFor")
-                        },
-
-                      Topic = angular,
-                      Difficulty = Difficulty.Easy,
-                  });
-            }
             context.SaveChanges();
-
         }
     }
 }

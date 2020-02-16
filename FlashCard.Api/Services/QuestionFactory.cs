@@ -11,13 +11,13 @@ namespace FlashCard.Api.Services
 
             if (desiredAnswer)
             {
-                question.AnswerOptions.Add(Answer.Correct("True"));
-                question.AnswerOptions.Add(Answer.Wrong("False"));
+                question.Answers.Add(Answer.Correct("True"));
+                question.Answers.Add(Answer.Wrong("False"));
             }
             else
             {
-                question.AnswerOptions.Add(Answer.Wrong("True"));
-                question.AnswerOptions.Add(Answer.Correct("False"));
+                question.Answers.Add(Answer.Wrong("True"));
+                question.Answers.Add(Answer.Correct("False"));
             }
             return question;
         }

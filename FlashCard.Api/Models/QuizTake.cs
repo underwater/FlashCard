@@ -9,7 +9,7 @@ namespace FlashCard.Api.Models
         public DateTime StartedOn { get; set; }
         public User User { get; set; }
         public decimal Score { get; set; }
-        public List<UserResponse> UserReponse { get; set; }
+        public List<UserResponse> UserReponses { get; set; }
 
     }
 }
