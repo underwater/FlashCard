@@ -1,11 +1,11 @@
-﻿using FlashCard.Api.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
-namespace Quiz.Core
+namespace FlashCard.Api.Models
 {
     public class QuizTake
     {
+        public int Id { get; set; }
         public DateTime StartedOn { get; set; }
         public User User { get; set; }
         public decimal Score { get; set; }

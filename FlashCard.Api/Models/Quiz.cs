@@ -4,6 +4,7 @@ namespace FlashCard.Api.Models
 {
     public class Quiz
     {
+        public int Id { get; set; }
         // Angular Newbie Quiz
         public string Title { get; set; }
 

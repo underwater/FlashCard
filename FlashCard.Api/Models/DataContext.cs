@@ -11,6 +11,7 @@ namespace FlashCard.Api.Models
         public DbSet<Topic> Topics { get; set; }
         public DbSet<Question> Questions { get; set; }
         public DbSet<Answer> Answers { get; set; }
-        public DbSet<Answer> Quizes { get; set; }
+        public DbSet<Quiz> Quizes { get; set; }
+        public DbSet<QuizTake> QuizTakes { get; set; }
     }
 }
