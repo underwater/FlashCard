@@ -1,4 +1,4 @@
-﻿using FlashCard.Api.Entities;
+﻿using FlashCard.Api.Models;
 using System.Collections.Generic;
 using System.Linq;
 

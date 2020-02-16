@@ -21,7 +21,7 @@ namespace FlashCard.Api.Models
                         Answer = "ngForm directive creates a top-level FormGroup instance and binds it to your <form> tag to enable you to work with the form",
                         Topic = angular,
                         IsFavorite = false
-                    }, 
+                    },
                     new Card
                     {
                         Question = "What is a directive",
@@ -46,33 +46,31 @@ namespace FlashCard.Api.Models
                     new Question
                     {
                         Text = "What does AOT stand for?",
-                        AnswerOptions = new List<AnswerOption>() {
+                        AnswerOptions = new List<Answer>() {
 
-                            AnswerOption.Correct("ahead-of-time compilation"),
-                            AnswerOption.Wrong("Angular Object Templates"),
-                            AnswerOption.Wrong("All of the above"),
-                            AnswerOption.Wrong("None of the above")
+                            Answer.Correct("ahead-of-time compilation"),
+                            Answer.Wrong("Angular Object Templates"),
+                            Answer.Wrong("All of the above"),
+                            Answer.Wrong("None of the above")
                         },
 
                         Topic = angular,
                         Difficulty = Difficulty.Easy,
-                        References = "https://angular.io/guide/aot-compiler"
                     },
 
                   new Question
                   {
                       Text = "Which directive would you use to conditionally include a template depending on the runtime value of an expression?",
-                      AnswerOptions = new List<AnswerOption>() {
+                      AnswerOptions = new List<Answer>() {
 
-                            AnswerOption.Correct("ngIf"),
-                            AnswerOption.Wrong("ngWhen"),
-                            AnswerOption.Wrong("ngWhile"),
-                            AnswerOption.Wrong("ngFor")
+                            Answer.Correct("ngIf"),
+                            Answer.Wrong("ngWhen"),
+                            Answer.Wrong("ngWhile"),
+                            Answer.Wrong("ngFor")
                         },
 
                       Topic = angular,
                       Difficulty = Difficulty.Easy,
-                      References = "https://angular.io/guide/aot-compiler"
                   });
             }
             context.SaveChanges();

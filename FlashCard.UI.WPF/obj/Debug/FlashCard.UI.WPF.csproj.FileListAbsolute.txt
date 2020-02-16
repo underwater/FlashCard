@@ -1,0 +1,14 @@
+C:\Users\Fares\Desktop\FlashCard\FlashCard.UI.WPF\bin\Debug\FlashCard.UI.WPF.exe.config
+C:\Users\Fares\Desktop\FlashCard\FlashCard.UI.WPF\bin\Debug\FlashCard.UI.WPF.exe
+C:\Users\Fares\Desktop\FlashCard\FlashCard.UI.WPF\bin\Debug\FlashCard.UI.WPF.pdb
+C:\Users\Fares\Desktop\FlashCard\FlashCard.UI.WPF\obj\Debug\FlashCard.UI.WPF.csprojAssemblyReference.cache
+C:\Users\Fares\Desktop\FlashCard\FlashCard.UI.WPF\obj\Debug\MainWindow.g.cs
+C:\Users\Fares\Desktop\FlashCard\FlashCard.UI.WPF\obj\Debug\App.g.cs
+C:\Users\Fares\Desktop\FlashCard\FlashCard.UI.WPF\obj\Debug\FlashCard.UI.WPF_MarkupCompile.cache
+C:\Users\Fares\Desktop\FlashCard\FlashCard.UI.WPF\obj\Debug\FlashCard.UI.WPF_MarkupCompile.lref
+C:\Users\Fares\Desktop\FlashCard\FlashCard.UI.WPF\obj\Debug\MainWindow.baml
+C:\Users\Fares\Desktop\FlashCard\FlashCard.UI.WPF\obj\Debug\FlashCard.UI.WPF.g.resources
+C:\Users\Fares\Desktop\FlashCard\FlashCard.UI.WPF\obj\Debug\FlashCard.UI.WPF.Properties.Resources.resources
+C:\Users\Fares\Desktop\FlashCard\FlashCard.UI.WPF\obj\Debug\FlashCard.UI.WPF.csproj.GenerateResource.cache
+C:\Users\Fares\Desktop\FlashCard\FlashCard.UI.WPF\obj\Debug\FlashCard.UI.WPF.exe
+C:\Users\Fares\Desktop\FlashCard\FlashCard.UI.WPF\obj\Debug\FlashCard.UI.WPF.pdb

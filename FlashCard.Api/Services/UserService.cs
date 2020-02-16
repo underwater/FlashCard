@@ -1,5 +1,5 @@
-﻿using FlashCard.Api.Entities;
-using FlashCard.Api.Helpers;
+﻿using FlashCard.Api.Helpers;
+using FlashCard.Api.Models;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using System;

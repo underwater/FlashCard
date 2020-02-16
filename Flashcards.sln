@@ -5,10 +5,6 @@ VisualStudioVersion = 16.0.29509.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlashCard.Api", "FlashCard.Api\FlashCard.Api.csproj", "{5C369F6A-2AB7-4A41-9FC5-E05953BFA132}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quiz.Core", "Quiz.Core\Quiz.Core.csproj", "{6E309258-F5A4-42AA-941C-BBD3F8C1495D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Quiz.Core.Tests", "Quiz.Core.Tests\Quiz.Core.Tests.csproj", "{5E354B23-4E56-43BB-BA7F-8671B9BED975}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,14 +15,6 @@ Global
 		{5C369F6A-2AB7-4A41-9FC5-E05953BFA132}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C369F6A-2AB7-4A41-9FC5-E05953BFA132}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C369F6A-2AB7-4A41-9FC5-E05953BFA132}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6E309258-F5A4-42AA-941C-BBD3F8C1495D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6E309258-F5A4-42AA-941C-BBD3F8C1495D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6E309258-F5A4-42AA-941C-BBD3F8C1495D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6E309258-F5A4-42AA-941C-BBD3F8C1495D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5E354B23-4E56-43BB-BA7F-8671B9BED975}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5E354B23-4E56-43BB-BA7F-8671B9BED975}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5E354B23-4E56-43BB-BA7F-8671B9BED975}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5E354B23-4E56-43BB-BA7F-8671B9BED975}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
