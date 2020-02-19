@@ -6,9 +6,10 @@ namespace FlashCard.Api.Services
 {
     public interface IQuestionAdminService
     {
-        Task<Question> AddQuestion();
-        Task<Question> DeleteQuestion();
         Task<List<Question>> GetQuestions();
+        Task<Question> AddQuestion(Question question);
         Task<Question> UpdateQuestion();
+        Task<Question> DeleteQuestion();
+
     }
 }

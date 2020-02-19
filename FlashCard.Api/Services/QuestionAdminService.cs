@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace FlashCard.Api.Services
@@ -25,7 +24,10 @@ namespace FlashCard.Api.Services
             return result;
         }
 
-        public Task<Question> AddQuestion() { throw new NotImplementedException(); }
+        public Task<Question> AddQuestion(Question question) 
+        { 
+            throw new NotImplementedException(); 
+        }
         public Task<Question> UpdateQuestion() { throw new NotImplementedException(); }
         public Task<Question> DeleteQuestion() { throw new NotImplementedException(); }
 
