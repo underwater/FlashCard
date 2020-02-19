@@ -44,6 +44,7 @@ namespace FlashCard.Api
 
             // configure DI for application services
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IQuestionAdminService, QuestionAdminService>();
 
             services.AddSwaggerGen(opt => 
                 opt.SwaggerDoc("v1", new OpenApiInfo { Title = "Flash Card API", Version = "v1" }));
