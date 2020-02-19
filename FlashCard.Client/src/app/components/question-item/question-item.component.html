@@ -1,1 +1,6 @@
-<p>question-item works!</p>
+<h3>Question</h3>
+{{ Question.text}}
+<h3>Answers</h3>
+<ul>
+    <li *ngFor="let answer of Question.answers">{{answer.text}}</li>
+</ul>
