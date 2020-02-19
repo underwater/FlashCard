@@ -8,15 +8,17 @@ import { ErrorHandlingComponent } from './error-handling/error-handling.componen
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { AuthGuard } from './guards/auth.guard';
 import { SigninGuard } from './guards/signin.guard';
+import { QuestionListComponent } from './components/question-list/question-list.component';
 
 const routes: Routes = [
-  { path: 'Topics', component: TopicListComponent, canActivate: [AuthGuard] },
+  { path: 'topics', component: TopicListComponent, canActivate: [AuthGuard] },
+  { path: 'questions', component: QuestionListComponent },
   {
     path: "cards",
     canActivate: [AuthGuard],
     children: [
       {
-        path: "editreactive/:id", 
+        path: "editreactive/:id",
         component: CardItemEditReactiveComponent
       },
       {
@@ -30,9 +32,9 @@ const routes: Routes = [
     ]
   },
   { path: 'ErrorHandling', component: ErrorHandlingComponent },
-  { 
+  {
     path: 'signin',
-    component: SignInComponent, 
+    component: SignInComponent,
     canActivate: [SigninGuard]
   },
   // otherwise redirect to home

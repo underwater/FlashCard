@@ -28,6 +28,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { SigninGuard } from './guards/signin.guard';
 import { EmptyPipe } from './pipes/empty.pipe';
 import { LoadingComponent } from './components/loading/loading.component';
+import { QuestionListComponent } from './components/question-list/question-list.component';
+import { QuestionItemComponent } from './components/question-item/question-item.component';
 
 
 @NgModule({
@@ -47,7 +49,9 @@ import { LoadingComponent } from './components/loading/loading.component';
     ErrorHandlingComponent,
     SignInComponent,
     EmptyPipe,
-    LoadingComponent
+    LoadingComponent,
+    QuestionListComponent,
+    QuestionItemComponent
   ],
   imports: [
     BrowserModule,

@@ -9,10 +9,13 @@
                 <a routerLink="/ErrorHandling" class="nav-link">Errors</a>
             </li>
             <li class="navbar-item">
+                <a routerLink="/questions" class="nav-link">Questions</a>
+            </li>
+            <li class="navbar-item">
                 <a routerLink="/cards" class="nav-link">Cards</a>
             </li>
             <li class="navbar-item">
-                <a routerLink="/Topics" class="nav-link">Topics</a>
+                <a routerLink="/topics" class="nav-link">Topics</a>
             </li>
             <li class="navbar-item" *ngIf="!authService.isLoggedIn">
                 <a routerLink="/signin" class="nav-link">Sign In</a>
