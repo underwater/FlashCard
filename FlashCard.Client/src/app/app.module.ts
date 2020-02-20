@@ -30,6 +30,7 @@ import { EmptyPipe } from './pipes/empty.pipe';
 import { LoadingComponent } from './components/loading/loading.component';
 import { QuestionListComponent } from './components/question-list/question-list.component';
 import { QuestionItemComponent } from './components/question-item/question-item.component';
+import { AnswerItemComponent } from './components/answer-item/answer-item.component';
 
 
 @NgModule({
@@ -51,7 +52,8 @@ import { QuestionItemComponent } from './components/question-item/question-item.
     EmptyPipe,
     LoadingComponent,
     QuestionListComponent,
-    QuestionItemComponent
+    QuestionItemComponent,
+    AnswerItemComponent
   ],
   imports: [
     BrowserModule,
