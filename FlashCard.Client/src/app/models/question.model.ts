@@ -10,4 +10,10 @@ export class Question {
     public difficulty: Difficulty,
     public answers: Answer[]
   ) { }
+
+  // TODO: getter to return # of correct answers Isn't working
+  get NumberOfCorrectAnswers(): number {
+    return this.answers.filter(a => a.isCorrect === true).length;
+  }
+
 }

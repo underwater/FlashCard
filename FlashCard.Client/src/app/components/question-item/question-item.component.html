@@ -1,15 +1,15 @@
 <div class="card m-3">
     <div class="card-body">
-        <h4 class="card-title">Question</h4>
-        <h6 class="card-subtitle text-muted">{{ Question.text}}</h6>
+        <h5 class="card-title text-muted">{{ Question.text}}</h5>
+        <p class="card-subtitle text-muted">Choose: [ {{ Question.NumberOfCorrectAnswers}} ]</p>
     </div>
     <img src="holder.js/100x180/" alt="">
     <div class="card-body">
         <!-- <p class="card-text">Text</p> -->
-        <h5>Answers</h5>
+        <!-- <h5>Answers</h5> -->
 
         <app-answer-item *ngFor="let answer of Question.answers" [Answer]=answer></app-answer-item>
 
-        <a href="#" class="card-link">Submit</a>
+        <a href="#" class="btn btn-success pull-right">Submit</a>
     </div>
 </div>
