@@ -1,8 +1,5 @@
-<div class="input-group mb-3">
-    <div class="input-group-prepend">
-        <div class="input-group-text">
-            <input type="checkbox">
-        </div>
-    </div>
-    <textarea class="form-control">{{Answer.text}}</textarea>
+<div>
+    <i *ngIf="!Answer.isCorrect" class="fa fa-remove"></i>
+    <i *ngIf="Answer.isCorrect" class="fa fa-check"></i>
+    <span class="col-10">{{Answer.text}}</span>
 </div>

@@ -2,6 +2,7 @@
     <div class="card-body">
         <h5 class="card-title text-muted">{{ Question.text}}</h5>
         <p class="card-subtitle text-muted">Choose: [ {{ Question.NumberOfCorrectAnswers}} ]</p>
+
     </div>
     <img src="holder.js/100x180/" alt="">
     <div class="card-body">
@@ -10,6 +11,7 @@
 
         <app-answer-item *ngFor="let answer of Question.answers" [Answer]=answer></app-answer-item>
 
-        <a href="#" class="btn btn-success pull-right">Submit</a>
+        <a href="#" class="btn btn-success pull-right">Edit</a>
+        <a href="#" class="btn btn-danger pull-right">Del</a>
     </div>
 </div>

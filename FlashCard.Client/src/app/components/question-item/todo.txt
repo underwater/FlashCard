@@ -1,0 +1,5 @@
+
+ngFor --> forward only single question experience
+
+
+
