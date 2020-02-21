@@ -1,5 +1,7 @@
 <div>
-    <i *ngIf="!Answer.isCorrect" class="fa fa-remove"></i>
-    <i *ngIf="Answer.isCorrect" class="fa fa-check"></i>
-    <span class="col-10">{{Answer.text}}</span>
+    <p>
+        <i *ngIf="!Answer.isCorrect" class="fa fa-remove text-danger"></i>
+        <i *ngIf="Answer.isCorrect" class="fa fa-check text-success"></i>
+        <span class="col-10">{{Answer.text}}</span>
+    </p>
 </div>
