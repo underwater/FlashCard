@@ -34,8 +34,10 @@ namespace FlashCard.Api.Services
 
         public async Task<Question> DeleteQuestion(int id)
         {
-            var question = await ctx.Questions.FindAsync(id);
-
+            var question = await ctx.Questions
+                .Include(q => q.Answers)
+                .FirstOrDefaultAsync( q => q.Id == id);
+            
             if (question == null)
             {
                 throw new NotFoundException($"Question with Id {id} Doesn't Exist");
