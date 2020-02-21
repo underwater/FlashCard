@@ -38,7 +38,7 @@ namespace FlashCard.Api
                     .AllowAnyHeader();
             }));
 
-           // 
+            // https://stackoverflow.com/questions/59199593/net-core-3-0-possible-object-cycle-was-detected-which-is-not-supported
             services.AddControllers()
             .AddNewtonsoftJson(options =>
             {

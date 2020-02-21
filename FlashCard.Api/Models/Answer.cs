@@ -1,10 +1,15 @@
-﻿namespace FlashCard.Api.Models
+﻿using System.Text.Json.Serialization;
+
+namespace FlashCard.Api.Models
 {
     public class Answer
     {
         public int Id { get; set; }
         public string Text { get; set; }
         public bool IsCorrect { get; set; }
+
+        //TODO: Should not be necessary, since startup class configured the JSON serializer...
+        [JsonIgnore]
         public Question Question { get; set; }
 
         public Answer(string text, bool isCorrect)
