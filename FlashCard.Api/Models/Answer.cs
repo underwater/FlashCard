@@ -13,7 +13,7 @@ namespace FlashCard.Api.Models
 
         // TODO: Causes cyclical dependency issue ?
         // public Question Question { get; set; }
-
+        public Answer() { }
         public Answer(string text, bool isCorrect)
         {
             Text = text;

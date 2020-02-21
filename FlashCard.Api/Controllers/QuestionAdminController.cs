@@ -34,7 +34,7 @@ namespace FlashCard.Api.Controllers
             Question result;
             try
             {
-                result = await service.DeleteQuestion(id);
+                result = await service.RemoveQuestion(id);
             }
             catch (InvalidOperationException ex)
             {
@@ -44,15 +44,22 @@ namespace FlashCard.Api.Controllers
             return Ok(result);
         }
 
-        /*
-         * api/admin/question/4/answers
-    
-        AddAnswer(questionID, Answer (from body))
-        UpdateAnswer()
-        DeleteAnswer()
-         
-         */
+        // TODO: The questionId isn't used should we change the url to just answer/{answerId}}
+        // if we do it won't be consistent with the AddAnswer below.
+        [HttpDelete("{questionId}/answers/")]
+        public async Task<ActionResult<Answer>> RemoveAnswer(Answer answer)
+        {
+            var result = await service.RemoveAnswer(answer.Id);
 
+            return Ok(result);
+        }
+
+        [HttpPost("{questionId}/answers/")]
+        public async Task<ActionResult<Answer>> AddAnswer(int questionId, [FromBody] Answer answer)
+        {
+            var result = await service.AddAnswer(questionId, answer);
+            return Ok(result);
+        }
 
     }
 }
