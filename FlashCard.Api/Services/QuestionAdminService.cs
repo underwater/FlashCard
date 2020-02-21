@@ -1,4 +1,5 @@
-﻿using FlashCard.Api.Models;
+﻿using FlashCard.Api.Errors;
+using FlashCard.Api.Models;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -43,8 +44,7 @@ namespace FlashCard.Api.Services
             }
             else
             {
-                // needed ?
-                throw new InvalidOperationException($"Question with Id {id} Doesn't Exist");
+                throw new NotFoundException($"Question with Id {id} Doesn't Exist");
             }
             return question;
         }
