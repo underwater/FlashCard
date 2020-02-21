@@ -9,8 +9,10 @@ namespace FlashCard.Api.Models
         public bool IsCorrect { get; set; }
 
         //TODO: Should not be necessary, since startup class configured the JSON serializer...
-        [JsonIgnore]
-        public Question Question { get; set; }
+        //[JsonIgnore]
+
+        // TODO: Causes cyclical dependency issue ?
+        // public Question Question { get; set; }
 
         public Answer(string text, bool isCorrect)
         {
