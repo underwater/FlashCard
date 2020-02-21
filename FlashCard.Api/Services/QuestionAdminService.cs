@@ -29,7 +29,26 @@ namespace FlashCard.Api.Services
             throw new NotImplementedException(); 
         }
         public Task<Question> UpdateQuestion() { throw new NotImplementedException(); }
-        public Task<Question> DeleteQuestion() { throw new NotImplementedException(); }
+
+
+        public async Task<Question> DeleteQuestion(int id)
+        {
+            var question = await ctx.Questions.FindAsync(id);
+
+            if (question != null)
+            {
+                ctx.Questions.Remove(question);
+                await ctx.SaveChangesAsync();
+ 
+            }
+            else
+            {
+                // needed ?
+                throw new InvalidOperationException($"Question with Id {id} Doesn't Exist");
+            }
+            return question;
+        }
+
 
     }
 
