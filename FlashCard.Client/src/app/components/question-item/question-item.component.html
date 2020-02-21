@@ -11,7 +11,10 @@
 
         <app-answer-item *ngFor="let answer of Question.answers" [Answer]=answer></app-answer-item>
 
-        <a href="#" class="btn btn-success pull-right">Edit</a>
-        <a href="#" class="btn btn-danger pull-right">Del</a>
+        <button class="m-1 btn btn-outline-danger float-right" (click)="deleteQuestion($event)">
+      <i class="fa fa-trash"></i></button>
+        <button class="m-1 btn btn-outline-info float-right" (click)="editQuestion($event)">
+      <i class="fa fa-pencil"></i></button>
+
     </div>
 </div>
