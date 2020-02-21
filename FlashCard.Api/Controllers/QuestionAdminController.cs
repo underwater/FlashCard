@@ -22,9 +22,12 @@ namespace FlashCard.Api.Controllers
         public async Task<ActionResult<IEnumerable<Question>>> GetQuestions()
         {
             var result = await service.GetQuestions();
+
+            // TODO: serialization stuck in infinite look?
+            // although i've configured ReferenceLoopHandling.Ignore for serializer
             return Ok(result);
         }
- 
+
         [HttpDelete("{id}")]
         public async Task<ActionResult<Question>> DeleteQuestion(int id)
         {

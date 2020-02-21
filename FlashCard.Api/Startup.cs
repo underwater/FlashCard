@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 
 namespace FlashCard.Api
 {
@@ -37,7 +38,13 @@ namespace FlashCard.Api
                     .AllowAnyHeader();
             }));
 
-            services.AddControllers();
+           // 
+            services.AddControllers()
+            .AddNewtonsoftJson(options =>
+            {
+                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            });
+
 
             services.ConfigJwtAuth(Configuration);
             

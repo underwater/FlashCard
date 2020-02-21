@@ -1,2 +1,1 @@
-<app-question-item *ngFor="let question of Questions" [Question]=question>
-</app-question-item>
+<app-question-item *ngFor="let question of Questions" [Question]=question (delete)="onDelete(question)" (edit)="onEdit(question)">

@@ -23,7 +23,13 @@ namespace FlashCard.Api.Models
                 .HasOne(bc => bc.Quiz)
                 .WithMany(b => b.Questions)
                 .HasForeignKey(bc => bc.QuestionId);
-          
+
+            // TODO: This is supposed to be the default behavior, but doens't seem to https://entityframeworkcore.com/saving-data-cascade-delete
+            //modelBuilder.Entity<Answer>()
+            //    .HasOne(a => a.Question)
+            //    .WithMany(q => q.Answers)
+            //    .OnDelete(DeleteBehavior.Cascade);
+         
         }
     }
 

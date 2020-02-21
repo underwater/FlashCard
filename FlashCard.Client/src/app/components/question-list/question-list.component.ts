@@ -18,4 +18,19 @@ export class QuestionListComponent implements OnInit {
       .subscribe(results => this.Questions = results);
   }
 
+  onEdit(question: Question) {
+    console.log('editing: ', question);
+  }
+
+  onDelete(question: Question) {
+    this.questionService.deleteQuestion(question).subscribe(
+      res => {
+        this.Questions = this.Questions.filter(q => q.id !== res.id);
+      },
+      err => {
+        console.log(err);
+      }
+    );
+  }
+
 }

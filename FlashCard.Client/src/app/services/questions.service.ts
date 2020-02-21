@@ -28,4 +28,8 @@ export class QuestionsAdminService {
     });
     return q;
   }
+
+  deleteQuestion(question: Question): Observable<Question> {
+    return this.http.delete<Question>(this.url + `/${question.id}`, httpOptions);
+  }
 }
