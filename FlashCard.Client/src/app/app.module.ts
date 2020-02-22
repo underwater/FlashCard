@@ -31,6 +31,7 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { QuestionListComponent } from './components/question-list/question-list.component';
 import { QuestionItemComponent } from './components/question-item/question-item.component';
 import { AnswerItemComponent } from './components/answer-item/answer-item.component';
+import { QuestionItemEditComponent } from './components/question-item-edit/question-item-edit.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { AnswerItemComponent } from './components/answer-item/answer-item.compon
     LoadingComponent,
     QuestionListComponent,
     QuestionItemComponent,
-    AnswerItemComponent
+    AnswerItemComponent,
+    QuestionItemEditComponent
   ],
   imports: [
     BrowserModule,

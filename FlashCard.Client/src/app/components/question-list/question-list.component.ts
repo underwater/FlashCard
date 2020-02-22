@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Question } from 'src/app/models/question.model';
 import { QuestionsAdminService } from 'src/app/services/questions.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-question-list',
@@ -11,7 +12,7 @@ export class QuestionListComponent implements OnInit {
 
   public Questions: Question[];
 
-  constructor(private questionService: QuestionsAdminService) { }
+  constructor(private questionService: QuestionsAdminService, private router: Router) { }
 
   ngOnInit() {
     this.questionService.getQuestions()
@@ -19,7 +20,7 @@ export class QuestionListComponent implements OnInit {
   }
 
   onEdit(question: Question) {
-    console.log('editing: ', question);
+    this.router.navigate(['/questions/edit', question.id]);
   }
 
   onDelete(question: Question) {

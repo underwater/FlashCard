@@ -7,6 +7,7 @@ namespace FlashCard.Api.Services
     public interface IQuestionAdminService
     {
         Task<List<Question>> GetQuestions();
+        Task<Question> GetQuestion(int id);
         Task<Question> AddQuestion(Question question);
 
         // TODO: better pass entire object Question?

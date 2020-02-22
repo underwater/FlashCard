@@ -28,6 +28,15 @@ namespace FlashCard.Api.Controllers
             return Ok(result);
         }
 
+
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<ActionResult<Question>> GetQuestion(int id)
+        {
+            var result = await service.GetQuestion(id);
+            return Ok(result);
+        }
+
         [HttpDelete("{id}")]
         public async Task<ActionResult<Question>> DeleteQuestion(int id)
         {

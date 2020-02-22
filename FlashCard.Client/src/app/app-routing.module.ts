@@ -9,9 +9,11 @@ import { SignInComponent } from './components/sign-in/sign-in.component';
 import { AuthGuard } from './guards/auth.guard';
 import { SigninGuard } from './guards/signin.guard';
 import { QuestionListComponent } from './components/question-list/question-list.component';
+import { QuestionItemEditComponent } from './components/question-item-edit/question-item-edit.component';
 
 const routes: Routes = [
   { path: 'topics', component: TopicListComponent, canActivate: [AuthGuard] },
+  { path: 'questions/edit/:id', component: QuestionItemEditComponent },
   { path: 'questions', component: QuestionListComponent },
   {
     path: "cards",

@@ -25,6 +25,12 @@ namespace FlashCard.Api.Services
             return result;
         }
 
+        public async Task<Question> GetQuestion(int id)
+        {
+            var result = await loadQuestionAsync(id);
+            return result;
+        }
+
         public Task<Question> AddQuestion(Question question) 
         { 
             throw new NotImplementedException(); 
@@ -60,13 +66,6 @@ namespace FlashCard.Api.Services
             return question;
         }
 
-        private async Task<Question> loadQuestionAsync(int id)
-        {
-            return await ctx.Questions
-                .Include(q => q.Answers)
-                .FirstOrDefaultAsync(q => q.Id == id);
-        }
-
         // TODO: what should I return QUESTION or ANSWER?
         public async Task<Answer> RemoveAnswer(int answerId)
         {
@@ -98,8 +97,14 @@ namespace FlashCard.Api.Services
             // how to return the added answer with the id?
             return answer;
         }
- 
-        
+
+        private async Task<Question> loadQuestionAsync(int id)
+        {
+            return await ctx.Questions
+                .Include(q => q.Answers)
+                .FirstOrDefaultAsync(q => q.Id == id);
+        }
+
     }
 
 

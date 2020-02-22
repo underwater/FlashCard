@@ -20,6 +20,11 @@ export class QuestionsAdminService {
       .pipe(map(r => r.map(q => this.createQuestion(q))));
   }
 
+  getQuestion(id: number): Observable<Question> {
+    return this.http.get<Question>(this.url + `/${id}`, httpOptions)
+      .pipe(map(r => this.createQuestion(r)));
+  }
+
   private createQuestion(question: Question): Question {
     // @ts-ignore
     const q = new Question();
