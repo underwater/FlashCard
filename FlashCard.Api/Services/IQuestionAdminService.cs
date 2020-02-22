@@ -9,14 +9,11 @@ namespace FlashCard.Api.Services
         Task<List<Question>> GetQuestions();
         Task<Question> GetQuestion(int id);
         Task<Question> AddQuestion(Question question);
-
-        // TODO: better pass entire object Question?
         Task<Question> RemoveQuestion(int id);
-        Task<Question> UpdateQuestion();
-
-
+        Task<Question> UpdateQuestion(int id, Question question);
+        Task<Answer> GetAnswer(int id);
         Task<Answer> AddAnswer(int questionId, Answer answer);
-        Task<Answer> RemoveAnswer(int answerId);
-
+        Task<Answer> RemoveAnswer(int id);
+        Task<Answer> UpdateAnswer(int answerId, Answer answer);
     }
 }

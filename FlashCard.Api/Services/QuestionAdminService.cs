@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace FlashCard.Api.Services
 {
-    // crud
+    /*
+     * won't worry about transactions / idempotency
+     */
     public class QuestionAdminService : IQuestionAdminService
     {
         public DataContext ctx { get; }
@@ -31,11 +33,32 @@ namespace FlashCard.Api.Services
             return result;
         }
 
-        public Task<Question> AddQuestion(Question question) 
-        { 
-            throw new NotImplementedException(); 
+        public async Task<Question> AddQuestion(Question question)
+        {
+            ctx.Questions.Add(question);
+            await ctx.SaveChangesAsync();
+            return question; // TODO: verify if id is updated.
         }
-        public Task<Question> UpdateQuestion() { throw new NotImplementedException(); }
+        public async Task<Question> UpdateQuestion(int id, Question updated)
+        {
+            var existing = await ctx.Questions.FirstOrDefaultAsync(q => q.Id == id);
+
+            if (existing == null)
+            {
+                throw new NotFoundException($"Question with Id {id} Doesn't Exist");
+            }
+
+            // verify if currently logged in user has rights
+
+            // use automapper to copy
+            existing.Text = updated.Text;
+            existing.Difficulty = updated.Difficulty;
+            existing.Topic = updated.Topic;
+            // we are purposely not touching the answers
+
+            await ctx.SaveChangesAsync();
+            return existing;
+        }
 
 
         public async Task<Question> RemoveQuestion(int id)
@@ -48,28 +71,15 @@ namespace FlashCard.Api.Services
             }
             else
             {
-                try
-                {
-                    // TODO: removing children explicitly (as not able to configure EF to do that)
-                    ctx.Answers.RemoveRange(question.Answers);
-                    ctx.Questions.Remove(question);
-                    await ctx.SaveChangesAsync();
-                }
-                // may arrive here if I delete a question with existing answers
-                // should perhaps without cascade delete enforced
-                catch (Exception ex)
-                {
-                    // TODO: what to do here ? 
-                    // 
-                }
+                ctx.Answers.RemoveRange(question.Answers);
+                ctx.Questions.Remove(question);
+                await ctx.SaveChangesAsync();
             }
             return question;
         }
 
-        // TODO: what should I return QUESTION or ANSWER?
         public async Task<Answer> RemoveAnswer(int answerId)
         {
-            // TODO: Is it better to remove the answer by first loading the question and removing it from the collection? Does it matter which approach?
             var answer = await ctx.Answers.FirstOrDefaultAsync(a => a.Id == answerId);
             if (answer == null)
             {
@@ -80,7 +90,6 @@ namespace FlashCard.Api.Services
             return answer;
         }
 
-        // TODO: what should I return QUESTION or ANSWER?
         public async Task<Answer> AddAnswer(int questionId, Answer answer)
         {
             var question = await loadQuestionAsync(questionId);
@@ -91,11 +100,21 @@ namespace FlashCard.Api.Services
             }
             else
             {
-                // what type of exception to throw?
+                throw new NotFoundException($"Question with Id {questionId} doesn't exist");
             }
-
-            // how to return the added answer with the id?
             return answer;
+        }
+
+
+
+        public Task<Answer> GetAnswer(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Answer> UpdateAnswer(int answerId, Answer answer)
+        {
+            throw new NotImplementedException();
         }
 
         private async Task<Question> loadQuestionAsync(int id)
@@ -104,7 +123,6 @@ namespace FlashCard.Api.Services
                 .Include(q => q.Answers)
                 .FirstOrDefaultAsync(q => q.Id == id);
         }
-
     }
 
 
