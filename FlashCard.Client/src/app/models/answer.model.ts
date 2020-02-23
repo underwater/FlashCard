@@ -1,7 +1,5 @@
-export class Answer {
-  constructor(
-    public id: number,
-    public text: string,
-    public isCorrect: boolean
-  ) { }
+export interface Answer {
+  id: number;
+  text: string;
+  isCorrect: boolean;
 }

@@ -55,10 +55,10 @@ namespace FlashCard.Api.Controllers
 
         // TODO: The questionId isn't used should we change the url to just answer/{answerId}}
         // if we do it won't be consistent with the AddAnswer below.
-        [HttpDelete("{questionId}/answers/")]
-        public async Task<ActionResult<Answer>> RemoveAnswer(Answer answer)
+        [HttpDelete("answers/{id}")]
+        public async Task<ActionResult<Answer>> RemoveAnswer(int id)
         {
-            var result = await service.RemoveAnswer(answer.Id);
+            var result = await service.RemoveAnswer(id);
 
             return Ok(result);
         }
@@ -71,4 +71,4 @@ namespace FlashCard.Api.Controllers
         }
 
     }
-}
+}   

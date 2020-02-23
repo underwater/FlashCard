@@ -3,38 +3,40 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Question } from '../models/question.model';
-const httpOptions = {
-  headers: new HttpHeaders({ 'content-type': 'application/json' })
-};
-
-// --- q1 --- q2 --- q3
-// ---- q[] ---- q[] ---- q[] --- q[]
+import { Answer } from '../models/answer.model';
 
 @Injectable({ providedIn: 'root' })
 export class QuestionsAdminService {
   private url = 'http://localhost:5000/api/admin/questions';
   constructor(private http: HttpClient) { }
 
-  getQuestions(): Observable<Question[]> {
-    return this.http.get<Question[]>(this.url, httpOptions)
-      .pipe(map(r => r.map(q => this.createQuestion(q))));
+  async getQuestions(): Promise<Question[]> {
+    return this.http.get<Question[]>(this.url).toPromise();
   }
 
-  getQuestion(id: number): Observable<Question> {
-    return this.http.get<Question>(this.url + `/${id}`, httpOptions)
-      .pipe(map(r => this.createQuestion(r)));
+  async getQuestion(id: number): Promise<Question> {
+    return this.http.get<Question>(this.url + `/${id}`).toPromise();
   }
 
-  private createQuestion(question: Question): Question {
-    // @ts-ignore
-    const q = new Question();
-    Object.keys(question).forEach(key => {
-      q[key] = question[key];
-    });
-    return q;
+  async removeQuestion(questionId: number): Promise<Question> {
+    return this.http.delete<Question>(this.url + `/${questionId}`).toPromise();
   }
 
-  deleteQuestion(question: Question): Observable<Question> {
-    return this.http.delete<Question>(this.url + `/${question.id}`, httpOptions);
+  async removeAnswer(answerId: number): Promise<Answer> {
+    return this.http.delete<Answer>(`${this.url}/answers/${answerId}`).toPromise()
+  }
+
+  async addQuestion(question: Question): Promise<Question> {
+    //TODO: Implement
+    throw new Error("Not implemented");
+  }
+
+  async updateQuestion(question: Question): Promise<Question> {
+    //TODO: Implement
+    throw new Error("Not implemented");
+  }
+
+  async addAnswer(questionId: number, answer: Partial<Answer>): Promise<Answer> {
+    return this.http.post<Answer>(`${this.url}/${questionId}/answers`, answer).toPromise();
   }
 }

@@ -24,7 +24,7 @@ export class QuestionListComponent implements OnInit {
   }
 
   onDelete(question: Question) {
-    this.questionService.deleteQuestion(question).subscribe(
+    this.questionService.removeQuestion(question).subscribe(
       res => {
         this.Questions = this.Questions.filter(q => q.id !== res.id);
       },
